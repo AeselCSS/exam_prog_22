@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Routes
-//const userRouter = require('./app/routes/userRouter')
+const userRouter = require('./app/routes/user_routes')
 //const itemRouter = require('./app/routes/itemRouter')
 
 //Modules
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('./app/views'))
 app.use(cors());
-//app.use('/', userRouter)
+app.use('/', userRouter)
 
 // BOOT UP EXPRESS SERVER
 const port = process.env.PORT || 3001;
