@@ -1,0 +1,22 @@
+html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#9b0612, #5a2831);
+  }
+  .index-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    padding: 20%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 20px;
+  }
+  
