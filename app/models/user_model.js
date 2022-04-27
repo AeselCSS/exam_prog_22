@@ -15,7 +15,7 @@ class User {
     }
     //methods 
     login() {
-        console.log(`${this.name}  has just logged in`);
+        console.log(`${this.name} has just logged in`);
       }
       
       logout() {
