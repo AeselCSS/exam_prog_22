@@ -6,26 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market22</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
    
-
 </head>
 <body>
     
 <!-- title -->
 <div class="title"><h1>Welcome</h1></div>
 <!-- title end -->
-<!-- sidebar nav-->
-<div class="sidenav">
-    <a href="index.html">Home</a>
-    <a href="account.html">My account</a>
-    <a href="listings.html">My listings</a>
-    <a href="#">Logout</a>
-</div>
-<!-- sidebar nav end -->
-<!-- user management -->
-<!-- user management end -->
-<!-- statistics-->
-<!-- statistics end-->
+
+<!-- sidebar nav -->
+<nav>
+    <a href="#search"><i class="far fa-user"></i></a>
+    <a href="#user_management"><i class="fas fa-briefcase"></i></a>
+    <a href="#sales_items"><i class="far fa-file"></i></a>
+    <a href="#logout"><i class="far fa-address-card"></i></a>
+  </nav>
+   
+ <div class= 'container'> 
+   <section id= 'search'>
+     <h1>Search</h1>
+   </section>
+   
+   <section id= 'user_management'>
+     <h1>User Management</h1>
+   </section>
+   
+  <section id= 'sales_items'>
+    <h1>Sales items</h1>
+   </section>
+   
+  <section id= 'logout'>
+    <h1>Logout</h1>
+   </section>
+ </div>
+
+
+
+
+
 <script src="../app/modules/users/user_services.js"></script>
 </body>
 </html>
