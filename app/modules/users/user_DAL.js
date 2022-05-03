@@ -174,6 +174,18 @@ const userLogin = async (req, res) => {
     }
   };
 
+// app.get('/login', checkNotAuthenticated, (req, res) => {
+//   res.render('../../../client/login.html')
+// })
+
+// app.post('/login', passport.authenticate('local', {
+//     successRedirect: '/index',
+//     failureRedirect: '/login',
+//     //show message from passport-config
+//     failureFlash: true
+//     //Remember to show it in the html syntax for messages.error!!!
+// }))
+
 
 module.exports = {
   createUser,

@@ -38,7 +38,7 @@ body {
 }
 
 .container {
-  background: #191919;
+  background: transparent;
   min-height: 100vh;
   font-family: Montserrat, sans-serif;
 }
