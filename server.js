@@ -4,8 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Routes
-const userRouter = require('./app/routes/user_routes')
-//const itemRouter = require('./app/routes/itemRouter')
+const userRouter = require('./app/modules/users/user_routes')
+//const itemRouter = require('./app/modules/items/itemRouter')
 
 //Modules
 const sql = require('./app/config/db_config')
@@ -14,7 +14,7 @@ const app = express();
 //Uses
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static('./app/views'))
+app.use(express.static('./client/'))
 app.use(cors());
 app.use('/', userRouter)
 

@@ -1,5 +1,5 @@
 const sql = require("mssql");
-const config = require("../config/db_config");
+const config = require("../../config/db_config");
 
 // ** user crud operators **
 
