@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,900&display=swap');
 html {
     height: 100%;
   }
+  
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   body {
     margin:0;
     padding:0;
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(#9b0612, #5a2831);
   }
   
@@ -76,3 +82,9 @@ html {
   margin-top: 40px;
   letter-spacing: 4px
 }
+
+
+/*
+Inspiriation:
+https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda
+*/

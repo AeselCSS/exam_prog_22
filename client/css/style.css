@@ -1,78 +1,65 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,900&display=swap');
+
+html {
+  height: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
 
 body {
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  margin:0;
+  padding:0;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('../img/3491270.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-/* Toggle Styles */
-
-#viewport {
-  padding-left: 250px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#content {
-  width: 100%;
-  position: relative;
-  margin-right: 0;
-}
-
-/* Sidebar Styles */
-
-#sidebar {
-  z-index: 1000;
-  position: fixed;
-  left: 250px;
-  width: 250px;
-  height: 100%;
-  margin-left: -250px;
-  overflow-y: auto;
-  background: #37474F;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#sidebar header {
-  background-color: #263238;
-  font-size: 20px;
-  line-height: 52px;
+/* Title position */
+.title h1 {
   text-align: center;
 }
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(17, 17, 17, 0);
+  border: 1px solid rgb(17, 12, 12);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
 
-#sidebar header a {
-  color: #fff;
-  display: block;
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  margin-top: 3px;
   text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  border: 1px solid rgb(17, 12, 12);
 }
 
-#sidebar header a:hover {
-  color: #fff;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-#sidebar .nav{
-  
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
 }
 
-#sidebar .nav a{
-  background: none;
-  border-bottom: 1px solid #455A64;
-  color: #CFD8DC;
-  font-size: 14px;
-  padding: 16px 24px;
-}
-
-#sidebar .nav a:hover{
-  background: none;
-  color: #ECEFF1;
-}
-
-#sidebar .nav a i{
-  margin-right: 16px;
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
