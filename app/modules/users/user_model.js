@@ -29,34 +29,3 @@ class User {
         User, 
         Admin
       };
-
-
-      class Chair {
-        constructor(name, price, tiltdegrees) {
-          this.name = name;
-          this.price = price;
-          this.tiltdegrees = tiltdegrees;
-          this.output = function () {
-            // return this.name + this.price + "kroner" + this.tiltdegrees + "%"; //returns "olfert300kroner5%"
-            return `name ${this.name} + price ${this.price} + tiltdegrees ${this.tiltdegrees}`; // returns "name olfert + price 300 + max tiltdegrees 5"
-          };
-        }
-      }
-      
-      class ChairSubClass extends Chair {
-        constructor(name, price, tiltdegrees, tilt_downwards, tilt_upwards) {
-          super(name, price, tiltdegrees);
-          this.tilt_downwards = tilt_downwards;
-          this.tilt_upwards = tilt_upwards;
-          this.actualtTiltdegree = function () {
-            return `New tiltdegree of chair: ${this.tiltdegrees - this.tilt_downwards + this.tilt_upwards }%`;
-          };
-        }
-      }
-      
-      const chair = new Chair("olfert", 300, 5);
-      console.log(chair.output());
-      
-      const subchair = new ChairSubClass("Jesus", 450, 5, 45, 12);
-      console.log(subchair.actualtTiltdegree());
-      console.log(subchair.output());
