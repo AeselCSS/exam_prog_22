@@ -1,7 +1,7 @@
 // define user class
 class User {
     // properties 
-    constructor(id, name, username,  email, password, city, country, isGoldmember, createdAt, updatedAt) {
+    constructor(id, name, username, email, password, city, country, isGoldmember, createdAt, updatedAt) {
         this.id = id;
         this.name = name;
         this.username = username;
