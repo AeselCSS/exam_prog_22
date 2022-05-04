@@ -2,6 +2,7 @@
 
 const sql = require("mssql");
 const config = require("../../config/db_config");
+const userModel = require("./../users/user_model");
 
 // ** user crud operators **
 
@@ -10,6 +11,7 @@ const config = require("../../config/db_config");
 const createUser = async (req, res) => {
   try {
     let userData = { ...req.body };
+    //const userData = new userModel.User(req.body.name, req.body.username, req.body.email, req.body.password, req.body.city, req.body.country);
     let pool = await sql.connect(config);
 
     // check if username already exists in the database
@@ -28,24 +30,26 @@ const createUser = async (req, res) => {
     } else {
       // if the username is not in the database, create new user
       let newUser = await pool.request().query(`
-        INSERT INTO dbo.users (name, username, email, password, city, country, created_at, updated_at)
+        INSERT INTO dbo.users (name, city, country, email, password, created_at, updated_at, username)
         VALUES(
             '${userData.name}',
-            '${userData.username}',
-            '${userData.email}',
-            '${userData.password}',
             '${userData.city}',
             '${userData.country}',
+            '${userData.email}',
+            '${userData.password}',
             CURRENT_TIMESTAMP,
-            CURRENT_TIMESTAMP
+            CURRENT_TIMESTAMP,
+            '${userData.username}'
             );
             `);
       res.status(200).json(`New user created sucessfully`);
+      
     }
   } catch (err) {
     console.log(err);
     res.json(err);
   }
+  
 };
 
 // read all users GET method
