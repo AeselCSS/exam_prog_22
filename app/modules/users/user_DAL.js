@@ -52,6 +52,43 @@ const createUser = async (req, res) => {
   
 };
 
+// user login
+
+const userLogin = async (req, res) => {
+  try {
+      let userData = { ...req.body };
+      let pool = await sql.connect(config);
+      // check if username already exists in the database
+      
+      let checkUser = await pool
+      .request()
+      .input("username", sql.NVarChar, userData.username)
+      .query("SELECT username FROM dbo.users WHERE username =@username");
+
+    if (checkUser.recordsets[0].length === 0) {
+      res
+        .status(409)
+        .json(`Username does not exist, please create a user account.`
+        );
+    } else {
+      let findUser = await pool
+      .request()
+      .input("username", sql.NVarChar, userData.username)
+      .query(
+        `SELECT username, password FROM dbo.users WHERE username = @username AND password = @password
+        VALUES(
+          '${findUser.username}',
+          '${findUser.password}'
+        )
+        `);
+      res.send(findUser.recordsets[0]);
+    }
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+
 // read all users GET method
 const readAllUsers = async (req, res) => {
   try {
@@ -147,36 +184,7 @@ const deleteUser = async (req, res) => {
 };
 
 // ** other user operators **
-// user login
 
-const userLogin = async (req, res) => {
-    try {
-        let userData = { ...req.body };
-        let pool = await sql.connect(config);
-        // check if username already exists in the database
-        let checkUsername = await pool
-        .request()
-        .input("username", sql.NVarChar, userData.username)
-        .query("SELECT username FROM dbo.users WHERE username =@username");
-  
-      if (checkUsername.recordsets[0].length === 0) {
-        res
-          .status(409)
-          .json(`Username does not exist, please create a user account.`
-          );
-      } else {
-        let findUser = await pool
-        .request()
-        .input("username", sql.NVarChar, userData.username)
-        .query(
-          "SELECT id, name, username, email, city, country, is_goldmember FROM dbo.users WHERE username = @username");
-        res.send(findUser.recordsets[0]);
-      }
-    } catch (err) {
-      console.log(err);
-      res.json(err);
-    }
-  };
 
 // app.get('/login', checkNotAuthenticated, (req, res) => {
 //   res.render('../../../client/login.html')
