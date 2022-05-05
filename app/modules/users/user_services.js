@@ -7,7 +7,6 @@ document
     event.preventDefault();
 
     const name = document.getElementById("name").value;
-    const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const city = document.getElementById("city").value;
