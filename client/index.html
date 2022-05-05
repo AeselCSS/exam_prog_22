@@ -15,21 +15,12 @@
   <a href="#search">Search</a>
   <a href="#user_management">User Management</a>
   <a href="#sales_items">Sales Items</a>
-  <a href="#logout">Logout</a>
+  <a href="#" id="logout-btn">Logout</a>
 </nav>
 <!-- site content -->  
 <div class= 'container'> 
  <section id= 'search'>
    <h1>Search</h1>
-
-
-
-
-
- </section>
-
- <section id= 'user_management'>
-   <div class= "title"><h1>User Management</h1></div>
    <div class= "section-content">
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis odio eget sem imperdiet venenatis. Cras nec diam euismod, porta orci accumsan, pellentesque ligula. Nullam fermentum felis vel nunc feugiat, ut egestas felis pharetra. Curabitur scelerisque risus at sem tincidunt varius. Nulla quis tellus sed sem pulvinar congue. Nulla convallis enim eu arcu pretium, vel aliquet arcu auctor. Mauris at gravida nisl. In hac habitasse platea dictumst. Aliquam erat volutpat. Etiam aliquam orci vel felis porta, eget semper est lobortis. Etiam malesuada tortor et orci laoreet porta vitae ut ipsum. Vivamus tincidunt ante pulvinar ipsum commodo, vel lobortis lacus lobortis. Donec luctus ut urna volutpat vestibulum.
@@ -37,33 +28,68 @@
       Ut viverra lorem ut velit mattis viverra a id nisi. Vivamus ac vestibulum odio, vel tempor nulla. Sed sollicitudin scelerisque leo, a ornare orci sagittis nec. Vestibulum mattis turpis a ligula tincidunt, ac facilisis dui sagittis. Phasellus et justo vel lectus egestas vehicula. Integer at elit nec erat suscipit vulputate. Donec feugiat dictum finibus.
     </p>
 
+   </div>
+
+ </section>
+
+ <section id='user_management'>
+   
+   
+  <h1>User Management</h1>
+    
+
     <div class="modal-container">
       <div class="interior">
-        <a class="btn" href="#open-modal">👋 Basic CSS-Only Modal</a>
+        <a class="btn" href="#update-user">Update User</a>
       </div>
     </div>
-    <div id="open-modal" class="modal-window">
-      <div>
-        <a href="#" title="Close" class="modal-close">Close</a>
-        <h1>Voilà!</h1>
-        <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div>
-        <div><small>Check out</small></div>
-        <a href="https://aminoeditor.com" target="_blank">👉 Amino: Live CSS Editor for Chrome</div>
-        </div>
-    </div>
-
-   </div>
    
  </section>
 
-<section id= 'sales_items'>
+<section id='sales_items'>
   <h1>Sales items</h1>
  </section>
 
-<section id= 'logout'>
+<section id='logout'>
   <h1>Logout</h1>
  </section>
 </div>
+</div>
+<section id='update-user'>
+  <a href="#user_management" title="Close" class="modal-close">Close</a>
+  <div class="form-box">
+  <h1>Update account data</h1>
+  <form id="updateUserForm">
+    <div class="user-box">
+      <input type="text" id="name" name="" required="" />
+      <label>Name</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id = "username" name="" required="" />
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="email" name="" required="" />
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="password" id="password" name="" required="" />
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="city" name="" required="" />
+      <label>City</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="country" name="" required="" />
+      <label>Country</label>
+    </div>
+    
+    <button class="submitButton" id="submitButton" value="Submit" type="submit">Update Account</button>
+  </form>
+</div>
+</section>
+</body>
 <script src="../app/modules/users/user_services.js"></script>>
 <script src="../app/modules/items/item_services.js"></script>>
 </html>
