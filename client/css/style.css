@@ -30,8 +30,8 @@ body {
 }
 
 :root {
---primary-color: #D96AA7;
---secondary-color: #422C73;
+--primary-color: rgba(0, 0, 0, 0.7);
+--secondary-color: rgba(255, 255, 255, 0.3);
 --complimentary-color: #88BFB5;
 --contrast-color: #F2E527;
 --light-color: #D2A9D9;
@@ -40,15 +40,21 @@ body {
 .container {
   background: transparent;
   min-height: 100vh;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav a {
-    font-size: 40px;
-    color: #fff;
+    font-size: 20px;
+    color: var(--primary-color);
+    font-weight: normal;
     text-decoration: none;
+
     padding: 20px;
     text-align: center;
+}
+
+nav a:hover {
+  color:rgba(0, 0, 0, 0.4)
 }
 
 nav {
@@ -113,4 +119,95 @@ section:target h1 {
 
 @keyframes fadeIn {
     100% { opacity:1 }
+}
+
+/* Modal */
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  & > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: white;
+  }
+  header {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  }
+
+  .modal-close:hover {
+    color: black;
+  }
+
+/* Demo Styles */
+
+
+a {
+  color: inherit;
+}
+
+.modal-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal-window {
+  & > div {
+    border-radius: 1rem;
+  }
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+small {
+  color: lightgray;
+}
+
+.btn {
+  background-color: white;
+  padding: 1em 1.5em;
+  border-radius: 1rem;
+  text-decoration: none;
+  i {
+    padding-right: 0.3em;
+  }
 }
