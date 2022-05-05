@@ -135,12 +135,13 @@ section:target h1 {
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s;
-  &:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  & > div {
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window div {
     width: 400px;
     position: absolute;
     top: 50%;
@@ -149,14 +150,14 @@ section:target h1 {
     padding: 2em;
     background: white;
   }
-  header {
+  .modal-window header {
     font-weight: bold;
   }
-  h1 {
+  .modal-window h1 {
     font-size: 150%;
     margin: 0 0 15px;
   }
-}
+
 
 .modal-close {
   color: #aaa;
@@ -188,10 +189,8 @@ a {
   height: 100vh;
 }
 
-.modal-window {
-  & > div {
-    border-radius: 1rem;
-  }
+.modal-window div {
+  border-radius: 1rem; 
 }
 
 .modal-window div:not(:last-of-type) {
@@ -207,7 +206,8 @@ small {
   padding: 1em 1.5em;
   border-radius: 1rem;
   text-decoration: none;
-  i {
-    padding-right: 0.3em;
-  }
+  
+}
+.btn i {
+  padding-right: 0.3em;
 }
