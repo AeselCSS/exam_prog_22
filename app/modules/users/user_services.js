@@ -1,5 +1,5 @@
 // USER SERVICES
-const url = `${process.env.URL}:${process.env.PORT}/users/`;
+const url = 'http://localhost:3000/users/';
 // CREATE USER
 document
   .getElementById("createUserForm")
@@ -32,7 +32,7 @@ document
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          location.href = "/client/login.html";
+          location.href = "../../../client/login.html";
         }
       })
       .catch(() => {

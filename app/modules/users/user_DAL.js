@@ -43,7 +43,7 @@ const createUser = async (req, res) => {
             );
             `);
       res.status(200).json(`New user created sucessfully`);
-      
+      console.log(newUser)
     }
   } catch (err) {
     console.log(err);
