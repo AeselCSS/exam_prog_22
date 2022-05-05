@@ -7,6 +7,7 @@ document
     event.preventDefault();
 
     const name = document.getElementById("name").value;
+    const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const city = document.getElementById("city").value;
@@ -80,6 +81,43 @@ document
       window.alert("oh noes! - Something went wrong.");
     });
 });
+
+/*
+  document
+  .getElementById("loginForm")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    const username = document.getElementById("username")
+    const password = document.getElementById("password")
+
+    const user = {
+      username: username,
+      password: password
+    };
+    fetch(url, {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      console.log(data)
+      localStorage.setItem("user", JSON.stringify(response));
+      window.location.href = "/";
+    })
+    .catch(() => {
+      window.alert("oh noes! - Something went wrong.");
+    });
+});
+*/
 
 /*
   
