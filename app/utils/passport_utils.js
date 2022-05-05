@@ -1,6 +1,6 @@
 const passport = require('passport');
-
 const initializePassport = require('../config/passport-config')
+
 initializePassport(
   passport,
   email => users.find(user => user.email === email),
