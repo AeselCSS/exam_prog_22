@@ -2,44 +2,43 @@
 
 const sql = require("mssql");
 const config = require("../../config/db_config");
+const itemModel = require("./../items/item_model");
 
 
 // create item POST method
 
 const createItem = async (req, res) => {
-      let itemData = { ...req.body };
-      let pool = await sql.connect(config);
-    
-      let newItem = await pool.request().query(`
-          INSERT INTO dbo.items (name, category, price, image, description, condition, item_status, created_at, updated_at)
-          VALUES(
-              '${itemData.name}',
-              '${itemData.category}',
-              '${itemData.price}',
-              '${itemData.image}',
-              '${itemData.description}',
-              '${itemData.condition}',
-              '${itemData.item_status}',
-              CURRENT_TIMESTAMP,
-              CURRENT_TIMESTAMP
-              );
-              `);
-        res.status(200).json(`New item created sucessfully`);
-    
-    if (err) {
-      console.log(err);
-      res.json(err);
-    }
+  let itemData = { ...req.body };
+  //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
+  let pool = await sql.connect(config);
+
+  let newItem = await pool.request().query(`
+      INSERT INTO dbo.sales_items (item_name, category, price, description, condition, fk_user_id, item_status_active, created_at, updated_at, image)
+      VALUES(
+          '${itemData.item_name}',
+          '${itemData.category}',
+          '${itemData.price}',
+          '${itemData.description}',
+          '${itemData.condition}',
+          '${itemData.fk_user_id}',
+          '${itemData.item_status_active}',
+          CURRENT_TIMESTAMP,
+          CURRENT_TIMESTAMP,
+          '${itemData.image}'
+          );
+          `);
+    res.status(200).json(`New item created sucessfully`);
+
 }
 
 // read all items GET method
-const readItems = async (req, res) => {
+const readAllItems = async (req, res) => {
     try {
       let pool = await sql.connect(config);
       let items = await pool
         .request()
         .query(
-          `SELECT * FROM dbo.items`
+          `SELECT * FROM dbo.sales_items`
         ); /* change the * to whatever data is needed to be shown */
       res.json(
         items.recordsets[0]
@@ -51,7 +50,7 @@ const readItems = async (req, res) => {
 };
 
 // read item by id GET method
-const readItem = async (req, res) => {
+const readItemById = async (req, res) => {
     let id = req.params.id;
     try {
       let pool = await sql.connect(config);
@@ -59,7 +58,7 @@ const readItem = async (req, res) => {
         .request()
         .input("id", sql.Int, id)
         .query(
-          "SELECT * FROM dbo.items WHERE id = @id"
+          "SELECT * FROM dbo.sales_items WHERE id = @id"
         ); /* change the * to whatever data is needed to be shown */
       res.json(
         findItem.recordsets[0]
@@ -74,27 +73,30 @@ const readItem = async (req, res) => {
 const updateItem = async (req, res) => {
     try {
       let itemData = { ...req.body };
+      //console.log(itemData); <-- For dev purpose only
       let pool = await sql.connect(config);
       let alterItem = await pool
         .request()
         .input("id", sql.Int, itemData.id)
-        .input("itemName", sql.NVarChar, itemData.name)
+        .input("item_name", sql.NVarChar, itemData.item_name)
         .input("category", sql.NVarChar, itemData.category)
-        .input("price", sql.NVarChar, itemData.price)
-        .input("image", sql.VarBinary, itemData.image)
+        .input("price", sql.Int, itemData.price)
         .input("description", sql.NVarChar, itemData.description)
         .input("condition", sql.NVarChar, itemData.condition)
-        .input("item_status", sql.NVarChar, itemData.item_status)
+        .input("fk_user_id", sql.Int, itemData.fk_user_id)
+        .input("item_status_active", sql.Bit, itemData.item_status_active)
+        .input("image", sql.NVarChar, itemData.image)
         .query(
-          `UPDATE dbo.items SET
-              itemName = @itemName,
+          `UPDATE dbo.sales_items SET
+              item_name = @item_name,
               category = @category,
               price = @price,
-              image = @image,
               description = @description,
               condition = @condition,
-              item_status = @item_status, 
-              updated_at = CURRENT_TIMESTAMP
+              fk_user_id = @fk_user_id,
+              item_status_active = @item_status_active,
+              updated_at = CURRENT_TIMESTAMP,
+              image = @image
               WHERE id = @id
               ;`
         );
@@ -114,7 +116,7 @@ const deleteItem = async (req, res) => {
     let destroyItem = await pool
       .request()
       .input("id", sql.Int, id)
-      .query("DELETE FROM dbo.items WHERE id = @Id");
+      .query("DELETE FROM dbo.sales_items WHERE id = @Id");
     res.json("Item has been deleted succesfully");
   } catch (err) {
     console.log(err);
@@ -124,8 +126,8 @@ const deleteItem = async (req, res) => {
 
 module.exports = {
   createItem,
-  readItems,
-  readItem,
+  readAllItems,
+  readItemById,
   updateItem,
   deleteItem
 };

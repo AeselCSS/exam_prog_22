@@ -1,18 +1,19 @@
 // define user class
 class Item {
     // properties 
-    constructor(id, name, category, price, image, description, condition, owner, itemStatus, createdAt, updatedAt) {
+    constructor(id, item_name, category, price, description, condition, fk_user_id, item_status_active, created_at, updated_at, image) {
         this.id = id;
-        this.name = name;
+        this.item_name = item_name;
         this.category = category;
         this.price = price;
-        this.image = image;
         this.description = description;
         this.condition = condition;
-        this.owner = owner;
-        this.itemStatus = itemStatus;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.fk_user_id = fk_user_id;
+        this.item_status_active = item_status_active;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+        this.image = image;
+
     }
      
 }
