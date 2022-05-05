@@ -18,7 +18,7 @@ userRouter.put("/users", userDAL.updateUser);
 userRouter.delete("/users/:id", userDAL.deleteUser);
 
 // user login & authentication route
-userRouter.post("/users/login", userDAL.userLogin);
+userRouter.post("/users", userDAL.userLogin);
 //userRouter.get('/login', checkauth.checkNotAuthenticated, (req, res) => {
 //   res.render('../../../client/login.html')
 
