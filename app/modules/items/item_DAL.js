@@ -33,7 +33,7 @@ const createItem = async (req, res) => {
 }
 
 // read all items GET method
-const readAllItems = async (req, res) => {
+const readItems = async (req, res) => {
     try {
       let pool = await sql.connect(config);
       let items = await pool
@@ -51,7 +51,7 @@ const readAllItems = async (req, res) => {
 };
 
 // read item by id GET method
-const readItemById = async (req, res) => {
+const readItem = async (req, res) => {
     let id = req.params.id;
     try {
       let pool = await sql.connect(config);
@@ -124,8 +124,8 @@ const deleteItem = async (req, res) => {
 
 module.exports = {
   createItem,
-  readAllItems,
-  readItemById,
+  readItems,
+  readItem,
   updateItem,
   deleteItem
 };

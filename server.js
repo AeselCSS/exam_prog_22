@@ -6,12 +6,12 @@ require('dotenv').config();
 //const passport = require('passport');
 //const flash = require('express-flash'); //show error message
 //const session = require('express-session'); 
-const { auth, requiresAuth } = require('express-openid-connect');
+
 
 
 // Routes
 const userRouter = require('./app/modules/users/user_routes')
-//const itemRouter = require('./app/modules/items/itemRouter')
+const itemRouter = require('./app/modules/items/item_routes')
 
 
 //Modules
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.static('./client/'))
 app.use(cors());
 
-app.use('/', userRouter);
+app.use('/', userRouter, itemRouter);
 
 // app.use(flash()); //error messages
 // app.use(session({
