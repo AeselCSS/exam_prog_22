@@ -3,28 +3,29 @@
 const sql = require("mssql");
 const config = require("../../config/db_config");
 const itemModel = require("./../items/item_model");
+const formData = require("express-form-data");
 
 
 // create item POST method
 
 const createItem = async (req, res) => {
   let itemData = { ...req.body };
+  //itemData.image = req.files.image.path.replace("\\", "/")
   //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
   let pool = await sql.connect(config);
 
   let newItem = await pool.request().query(`
-      INSERT INTO dbo.sales_items (item_name, category, price, description, condition, fk_user_id, item_status_active, created_at, updated_at, image)
+      INSERT INTO dbo.sales_items (item_name, category, price, description, condition, image, fk_user_id, created_at, updated_at)
       VALUES(
           '${itemData.item_name}',
           '${itemData.category}',
           '${itemData.price}',
           '${itemData.description}',
           '${itemData.condition}',
+          '${itemData.image}',
           '${itemData.fk_user_id}',
-          '${itemData.item_status_active}',
           CURRENT_TIMESTAMP,
-          CURRENT_TIMESTAMP,
-          '${itemData.image}'
+          CURRENT_TIMESTAMP
           );
           `);
     res.status(200).json(`New item created sucessfully`);

@@ -58,19 +58,7 @@ const userLogin = async (req, res) => {
   try {
       let userData = { ...req.body };
       let pool = await sql.connect(config);
-      // check if username already exists in the database
-      
-      let checkUser = await pool
-      .request()
-      .input("username", sql.NVarChar, userData.username)
-      .query("SELECT username FROM dbo.users WHERE dbo.users.username =@username");
 
-    if (checkUser.recordsets[0].length === 0) {
-      res
-        .status(409)
-        .json(`Username does not exist, please create a user account.`
-        );
-    } else {
       let findUser = await pool
       .request()
       .input("username", sql.NVarChar, userData.username)
@@ -79,7 +67,7 @@ const userLogin = async (req, res) => {
         `SELECT id FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
       res.send(findUser.recordsets[0]);
       
-    }
+   // }
   } catch (err) {
     console.log(err);
     res.json(err);
