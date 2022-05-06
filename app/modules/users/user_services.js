@@ -1,7 +1,7 @@
 // USER SERVICES
 const url = 'http://localhost:3000/users/';
 // CREATE USER
-document.addEventListener('DOMContentLoaded', () => {
+//document.addEventListener('DOMContentLoaded', () => {
 
 let registerBtn = document.getElementById("createUserForm");
   registerBtn.addEventListener("submit", (event) => {
@@ -40,101 +40,69 @@ let registerBtn = document.getElementById("createUserForm");
         window.alert("oh noes! - Something went wrong.");
       });
   });
+//});
+
+// // check if user is logged in and if not redirected to the login page
+// document.addEventListener("DOMContentLoaded", () => {
+//   const user = localStorage.getItem("user");
+//   if (!user) {
+//     window.location.href = "../../../client/login.html";
+//   }
+// });
+
+// // USER LOGIN
+// /*document.addEventListener('DOMContentLoaded', () => {
+//  // For at rækkefølge af events blive udført ordentligt
+//   let loginBtn = document.getElementById("loginForm");
+//   loginBtn.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//   */
+ 
+//     document.getElementById("loginForm").addEventListener("submit", (event)=>
+//     {event.preventDefault();
+
+//     const username = document.getElementById("username").value;
+//     const password = document.getElementById("password").value;
+
+//     const user = {
+//       username: username,
+//       password: password
+//     };
+//     window.alert (user);
+//     fetch(`${url}login`, {
+//       method: "POST",
+//       header: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(user)
+//     })
+//     .then((response) => {
+//       return response.json()
+//     })
+//     .then((response) => {
+//       if (response) {
+//         username === response.username &&
+//         password === response.password        
+//       }
+//       window.alert(response)
+//       localStorage.setItem("user", JSON.stringify(response));
+//       window.location.href = "../../../client/index.html";
+//       console.log("success!!!!")
+//     })
+//     .catch(() => {
+//       window.alert("Dang it! Something went wrong");
+//     });
+// });
+// //});
+
+
+// USER LOGOUT
+document.getElementById("logout-btn").addEventListener("click", () => {
+  localStorage.clear();
 });
-/*
-// USER LOGIN
-  document
-  .getElementById("loginForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-    const username = document.getElementById("username")
-    const password = document.getElementById("password")
-
-    const user = {
-      username: username,
-      password: password
-    };
-    fetch(url, {
-      method: "POST",
-      header: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-    .then((response) => response.json())
-    .then((response) => {
-      if (response) {
-          username === response.username &&
-          password === response.password
-         {
-          // passport logic??
-          // Save login data to localstorage in order to keep user logged in
-          //localStorage.setItem("user", JSON.stringify(response));
-          location.href = "../../../client/index.html";
-        } else {
-          window.alert("Username or Password is incorrect");
-        }
-      } else {
-        window.alert("Information are incorrect");
-      }
-
-    }
-    })
-    .catch(() => {
-      window.alert("oh noes! - Something went wrong.");
-    });
-});
-*/
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  //For at rækkefølge af events blive udført ordentligt
-  let loginBtn = document.getElementById("loginForm");
-  loginBtn.addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-    const username = document.getElementById("username")
-    const password = document.getElementById("password")
-
-    const user = {
-      username: username,
-      password: password
-    };
-
-    fetch(`${url}login`, {
-      method: "POST",
-      header: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user)
-    })
-    .then((response) => {
-      return response.json()
-    })
-    .then((response) => {
-      if (response) {
-        username === response.username &&
-        password === response.password        
-      }
-      window.alert(response)
-      //localStorage.setItem("user", JSON.stringify(response));
-      window.location.href = "../../../client/index.html";
-      console.log("success!!!!")
-    })
-    .catch(() => {
-      window.alert("Dang it! Something went wrong");
-    });
-});
-});
-
 
 /*
   
-  logout() {
-    console.log(`${this.name} has just logged out`);
-  }
-
   updateUser() {
     console.log('user updated');
   }

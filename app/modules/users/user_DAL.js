@@ -2,7 +2,7 @@
 
 const sql = require("mssql");
 const config = require("../../config/db_config");
-const userModel = require("./../users/user_model");
+const userModel = require("./user_model");
 
 // ** user crud operators **
 
@@ -63,7 +63,7 @@ const userLogin = async (req, res) => {
       let checkUser = await pool
       .request()
       .input("username", sql.NVarChar, userData.username)
-      .query("SELECT username FROM dbo.users WHERE username =@username");
+      .query("SELECT username FROM dbo.users WHERE dbo.users.username =@username");
 
     if (checkUser.recordsets[0].length === 0) {
       res
@@ -74,14 +74,11 @@ const userLogin = async (req, res) => {
       let findUser = await pool
       .request()
       .input("username", sql.NVarChar, userData.username)
+      .input("password", sql.NVarChar, userData.password)
       .query(
-        `SELECT username, password FROM dbo.users WHERE username = @username AND password = @password
-        VALUES(
-          '${findUser.username}',
-          '${findUser.password}'
-        )
-        `);
+        `SELECT * FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
       res.send(findUser.recordsets[0]);
+      
     }
   } catch (err) {
     console.log(err);

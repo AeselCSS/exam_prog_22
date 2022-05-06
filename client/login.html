@@ -11,12 +11,12 @@
     <h2>Log in</h2>
     <form id="loginForm">
       <div class="user-box">
-        <input type="text" name="" required="">
-        <label>username</label>
+        <input type="text" id="username" name="username" required="">
+        <label for="username">username</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
-        <label>Password</label>
+        <input type="password" id="password" name="password" required="">
+        <label for="password">Password</label>
       </div>
       <button class="submitButton" id="submitLogin" value="Submit" type="submit">Log in</button>
     </form>
@@ -24,7 +24,7 @@
   </div>
 
 
-  <script async src="../app/modules/users/user_services.js"></script>
+  <script src="../app/modules/users/user_login.js"></script>
 
 </body>
 
