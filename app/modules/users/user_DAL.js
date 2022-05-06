@@ -76,7 +76,7 @@ const userLogin = async (req, res) => {
       .input("username", sql.NVarChar, userData.username)
       .input("password", sql.NVarChar, userData.password)
       .query(
-        `SELECT * FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
+        `SELECT id FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
       res.send(findUser.recordsets[0]);
       
     }
@@ -113,7 +113,7 @@ const readUserById = async (req, res) => {
       .request()
       .input("id", sql.Int, id)
       .query(
-        "SELECT * FROM dbo.users WHERE id = @id"
+        "SELECT name, username, email, password, city, country FROM dbo.users WHERE id = @id"
       ); /* change the * to whatever data is needed to be shown */
     res.json(
       findUser.recordsets[0]
@@ -138,11 +138,6 @@ const updateUser = async (req, res) => {
       .input("password", sql.NVarChar, userData.password)
       .input("city", sql.NVarChar, userData.city)
       .input("country", sql.NVarChar, userData.country)
-      .input(
-        "isGoldmember",
-        sql.Bit,
-        userData.isGoldmember
-      ) /* FOR ADMIN PURPOSE */
       .query(
         `UPDATE dbo.users SET
             name = @fullName,
@@ -150,8 +145,7 @@ const updateUser = async (req, res) => {
             email = @email,
             password = @password,
             city = @city,
-            country = @country,
-            is_goldmember = @isGoldmember, 
+            country = @country, 
             updated_at = CURRENT_TIMESTAMP
             WHERE id = @id
             ;`
