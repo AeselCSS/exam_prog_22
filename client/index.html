@@ -12,9 +12,9 @@
 <body>
   <!-- sidebar nav -->
  <nav>
-  <a href="#search">Search</a>
-  <a href="#user_management">User Management</a>
-  <a href="#sales_items">Sales Items</a>
+  <a href="#search" id="search-btn">Search</a>
+  <a href="#user_management" id="user-management-btn">User Management</a>
+  <a href="#sales_items" id="sales-items-btn">Sales Items</a>
   <a href="#" id="logout-btn">Logout</a>
 </nav>
 <!-- site content -->  
@@ -36,11 +36,15 @@
    
    
   <h1>User Management</h1>
-    
-
+ <!--<table id="showUserData">   
+     Data goes here.... sure hop so at least... 
+  </table> -->
+  <p id='showData'></p>
+  
     <div class="modal-container">
       <div class="interior">
         <a class="btn" href="#update-user">Update User</a>
+        <a class="btn" href="#" id="delete-user-btn">Delete User</a>
       </div>
     </div>
    
@@ -85,11 +89,17 @@
       <label>Country</label>
     </div>
     
-    <button class="submitButton" id="submitButton" value="Submit" type="submit">Update Account</button>
+    <button class="submitButton" id="update-user-btn" value="submit" type="submit">Update Account</button>
   </form>
 </div>
 </section>
 </body>
-<script src="../app/modules/users/user_services.js"></script>>
-<script src="../app/modules/items/item_services.js"></script>>
+<script src="../app/modules/users/user_check_logged_in.js"></script>
+<script src="../app/modules/users/user_logout.js"></script>
+<script src="../app/modules/users/user_information.js"></script>
+<script src="../app/modules/users/user_update.js"></script>
+<script src="../app/modules/users/user_delete.js"></script>
+
+
+<!--<script src="../app/modules/items/item_services.js"></script>-->
 </html>
