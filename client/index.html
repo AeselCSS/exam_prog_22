@@ -36,9 +36,7 @@
    
    
   <h1>User Management</h1>
- <!--<table id="showUserData">   
-     Data goes here.... sure hop so at least... 
-  </table> -->
+ 
   <p id='showData'></p>
   
     <div class="modal-container">
@@ -52,13 +50,119 @@
 
 <section id='sales_items'>
   <h1>Sales items</h1>
+  <div class="modal-container">
+    <div class="interior">
+      <a class="btn" href="#create-item">Create item</a>
+      <a class="btn" href="#update-item">Update item</a>
+      <a class="btn" href="#delete-item">Delete item</a>
+    </div>
+  </div>
+
  </section>
 
 <section id='logout'>
   <h1>Logout</h1>
  </section>
+
 </div>
 </div>
+
+<section id='create-item'>
+  <a href="#sales_items" title="Close" class="modal-close">Close</a>
+  <div class="form-box">
+  <h1>Create new item</h1>
+  <form id="updateUserForm">
+    <div class="user-box">
+      <input type="text" id="name" name="" required="" />
+      <label>Name</label>
+    </div>
+    <div class="user-box">
+      <select name="category" id="category">
+        <option value="0">Select category:</option>
+        <option value="Cars">Cars</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Home and Garden">Home and Garden </option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Sport and Leisure">Sport amd Leisure</option>
+        <option value="Toys">Toys</option>
+        <option value="Other">Other</option>
+      </select>
+      
+    </div>
+    <div class="user-box">
+      <input type="text" id="price" name="" required="" />
+      <label>Price</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="description" name="" required="" />
+      <label>Description</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="condition" name="" required="" />
+      <label>Condition</label>
+    </div>
+    <div class="user-box">
+      <input type="file" id="image" name="" required="" />
+      
+    </div>
+
+    <button class="submitButton" id="create-item-btn" value="submit" type="submit">Create item</button>
+  </form>
+</div>
+</section>
+
+<section id='update-item'>
+  <a href="#sales_items" title="Close" class="modal-close">Close</a>
+  <div class="form-box">
+  <h1>Update item data</h1>
+  <form id="updateUserForm">
+    <div class="user-box">
+      <input type="text" id="name" name="" required="" />
+      <label>Name</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id = "username" name="" required="" />
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="email" name="" required="" />
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="password" id="password" name="" required="" />
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="city" name="" required="" />
+      <label>City</label>
+    </div>
+    <div class="user-box">
+      <input type="text" id="country" name="" required="" />
+      <label>Country</label>
+    </div>
+    
+    <button class="submitButton" id="update-item-btn" value="submit" type="submit">Update item</button>
+  </form>
+</div>
+</section>
+
+<section id='delete-item'>
+  <a href="#sales_items" title="Close" class="modal-close">Close</a>
+  <div class="form-box">
+  <h1>Delete item data</h1>
+  <form id="updateUserForm">
+    <div class="user-box">
+      <input type="text" id="id" name="" required="" />
+      <label>item id</label>
+    </div>
+    
+    <button class="submitButton" id="update-item-btn" value="submit" type="submit">Delete item</button>
+  </form>
+</div>
+</section>
+
+
 <section id='update-user'>
   <a href="#user_management" title="Close" class="modal-close">Close</a>
   <div class="form-box">
@@ -93,13 +197,20 @@
   </form>
 </div>
 </section>
+
+
 </body>
+<!-- USER SCRIPTS -->
 <script src="../app/modules/users/user_check_logged_in.js"></script>
 <script src="../app/modules/users/user_logout.js"></script>
 <script src="../app/modules/users/user_information.js"></script>
 <script src="../app/modules/users/user_update.js"></script>
 <script src="../app/modules/users/user_delete.js"></script>
 
+<!-- iTEM SCRIPTS -->
+<script src="../app/modules/items/item_create.js"></script>
+<script src="../app/modules/items/item_delete.js"></script>
+<script src="../app/modules/items/item_update.js"></script>
+<script src="../app/modules/items/item_get_all.js"></script>
 
-<!--<script src="../app/modules/items/item_services.js"></script>-->
 </html>
