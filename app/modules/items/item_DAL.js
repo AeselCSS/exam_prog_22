@@ -10,22 +10,22 @@ const itemModel = require("./../items/item_model");
 
 const createItem = async (req, res) => {
   let itemData = { ...req.body };
-  let imageData = { ...req.file}
+  // let imageData = { ...req.file}
   //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
   let pool = await sql.connect(config);
 
   let newItem = await pool.request().query(`
-      INSERT INTO dbo.sales_items (item_name, category, price, description, condition, image, fk_user_id, created_at, updated_at)
+      INSERT INTO dbo.sales_items (item_name, category, price, description, condition, fk_user_id, created_at, updated_at, image)
       VALUES(
           '${itemData.item_name}',
           '${itemData.category}',
           '${itemData.price}',
           '${itemData.description}',
           '${itemData.condition}',
-          '${imageData.image}',
           '${itemData.fk_user_id}',
           CURRENT_TIMESTAMP,
-          CURRENT_TIMESTAMP
+          CURRENT_TIMESTAMP,
+          '${itemData.image}'
           );
           `);
     res.status(200).json(`New item created sucessfully`);

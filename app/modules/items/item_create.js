@@ -13,7 +13,7 @@ const url = `http://localhost:3000/items/`;
 
      
 
-      await fetch('http://localhost:3000/items/', {
+      await fetch(url, {
           method: "POST",
           body: formData,
       })
