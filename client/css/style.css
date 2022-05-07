@@ -311,3 +311,8 @@ td, th {
   border: 1px solid var(--font-color);;
   padding: 0.5rem;
 }
+
+.data-table{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
