@@ -10,7 +10,7 @@ const itemModel = require("./../items/item_model");
 
 const createItem = async (req, res) => {
   let itemData = { ...req.body };
-  
+  let imageData = { ...req.file}
   //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
   let pool = await sql.connect(config);
 
@@ -22,7 +22,7 @@ const createItem = async (req, res) => {
           '${itemData.price}',
           '${itemData.description}',
           '${itemData.condition}',
-          '${itemData.image}',
+          '${imageData.image}',
           '${itemData.fk_user_id}',
           CURRENT_TIMESTAMP,
           CURRENT_TIMESTAMP

@@ -10,29 +10,30 @@
   
 </head>
 <body>
-  <!-- sidebar nav -->
+                                            <!-- NAV SIDEBAR -->
  <nav>
   <a href="#search" id="search-btn">Search</a>
   <a href="#user_management" id="user-management-btn">User Management</a>
   <a href="#sales_items" id="sales-items-btn">Sales Items</a>
   <a href="#" id="logout-btn">Logout</a>
 </nav>
-<!-- site content -->  
-<div class= 'container'> 
+                                            <!-- SITE CONTENT -->  
+<div class= 'container'>
+                                            <!--SEARCH SECTION --> 
  <section id= 'search'>
    <h1>Search</h1>
    <div class= "section-content">
 
-    <p id='showSearchData'></p>
+    <p class="data-table" id='showSearchData'></p>
 
    </div>
 
  </section>
-
+                                              <!--USER MANAGEMENT SECTION -->
  <section id='user_management'>
   <h1>User Management</h1>
- 
-  <p id='showUserData'></p>
+  
+  <p class="data-table" id='showUserData'></p>
   
     <div class="modal-container">
       <div class="interior">
@@ -42,10 +43,10 @@
     </div>
    
  </section>
-
+                                              <!--SALES ITEMS SECTION -->
 <section id='sales_items'>
   <h1>Sales items</h1>
-  <p id='showUserItems'></p>
+  <p class="data-table" id='showUserItems'></p>
   <div class="modal-container">
     <div class="interior">
       <a class="btn" href="#create-item">Create item</a>
@@ -55,19 +56,19 @@
   </div>
 
  </section>
-
+                                                <!-- LOGOUT -->
 <section id='logout'>
   <h1>Logout</h1>
  </section>
 
 </div>
 </div>
-
+                                            <!--CREATE ITEM -->
 <section id='create-item'>
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
   <h1>Create new item</h1>
-  <form id="createItemForm" enctype="multipart/form-data">
+  <form id="createItemForm" enctype="multipart/form-data" method="post">
     <div class="user-box">
       <input type="text" id="itemName" name="" required="" />
       <label>Name</label>
@@ -95,11 +96,15 @@
       <label>Description</label>
     </div>
     <div class="user-box">
-      <input type="text" id="condition" name="" required="" />
-      <label>Condition</label>
+      <select name="condition" id="condition" required="">
+        <option value="0">Select condition:</option>
+        <option value="New">New</option>
+        <option value="Used">Used</option>
+        <option value="Worn">Worn</option>
+      </select>
     </div>
     <div class="user-box">
-      <input type="file" class="form-control-file" id="image" name="uploaded_file" required="" />
+      <input type="file" class="form-control-file" id="image" name="uploaded_image" required="" />
       
     </div>
 
@@ -107,7 +112,7 @@
   </form>
 </div>
 </section>
-
+                                              <!--UPDATE ITEM -->
 <section id='update-item'>
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
@@ -142,8 +147,12 @@
         <label>Description</label>
       </div>
       <div class="user-box">
-        <input type="text" id="newItemCondition" name="" required="" />
-        <label>Condition</label>
+        <select name="condition" id="newItemCondition" required="">
+          <option value="0">Select condition:</option>
+          <option value="New">New</option>
+          <option value="Used">Used</option>
+          <option value="Worn">Worn</option>
+        </select>
       </div>
       <div class="user-box">
         <input type="file" class="form-control-file" id="newItemImage" name="uploaded_file" required="" />
@@ -155,7 +164,7 @@
     
 </div>
 </section>
-
+                                                <!--DELETE ITEM -->
 <section id='delete-item'>
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
@@ -171,7 +180,7 @@
 </div>
 </section>
 
-
+                                              <!--UPDATE USER -->
 <section id='update-user'>
   <a href="#user_management" title="Close" class="modal-close">Close</a>
   <div class="form-box">
