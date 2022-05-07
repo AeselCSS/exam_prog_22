@@ -23,21 +23,16 @@
    <h1>Search</h1>
    <div class= "section-content">
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis odio eget sem imperdiet venenatis. Cras nec diam euismod, porta orci accumsan, pellentesque ligula. Nullam fermentum felis vel nunc feugiat, ut egestas felis pharetra. Curabitur scelerisque risus at sem tincidunt varius. Nulla quis tellus sed sem pulvinar congue. Nulla convallis enim eu arcu pretium, vel aliquet arcu auctor. Mauris at gravida nisl. In hac habitasse platea dictumst. Aliquam erat volutpat. Etiam aliquam orci vel felis porta, eget semper est lobortis. Etiam malesuada tortor et orci laoreet porta vitae ut ipsum. Vivamus tincidunt ante pulvinar ipsum commodo, vel lobortis lacus lobortis. Donec luctus ut urna volutpat vestibulum.
-
-      Ut viverra lorem ut velit mattis viverra a id nisi. Vivamus ac vestibulum odio, vel tempor nulla. Sed sollicitudin scelerisque leo, a ornare orci sagittis nec. Vestibulum mattis turpis a ligula tincidunt, ac facilisis dui sagittis. Phasellus et justo vel lectus egestas vehicula. Integer at elit nec erat suscipit vulputate. Donec feugiat dictum finibus.
-    </p>
+    <p id='showSearchData'></p>
 
    </div>
 
  </section>
 
  <section id='user_management'>
-   
-   
   <h1>User Management</h1>
  
-  <p id='showData'></p>
+  <p id='showUserData'></p>
   
     <div class="modal-container">
       <div class="interior">
@@ -50,6 +45,7 @@
 
 <section id='sales_items'>
   <h1>Sales items</h1>
+  <p id='showUserItems'></p>
   <div class="modal-container">
     <div class="interior">
       <a class="btn" href="#create-item">Create item</a>
@@ -71,7 +67,7 @@
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
   <h1>Create new item</h1>
-  <form id="updateUserForm">
+  <form id="createItemForm" enctype="multipart/form-data">
     <div class="user-box">
       <input type="text" id="name" name="" required="" />
       <label>Name</label>
@@ -103,7 +99,7 @@
       <label>Condition</label>
     </div>
     <div class="user-box">
-      <input type="file" id="image" name="" required="" />
+      <input type="file" class="form-control-file" name="uploaded_file" required="" />
       
     </div>
 
@@ -116,7 +112,7 @@
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
   <h1>Update item data</h1>
-  <form id="updateUserForm">
+  <form id="updateItemForm">
     <div class="user-box">
       <input type="text" id="name" name="" required="" />
       <label>Name</label>
@@ -151,7 +147,7 @@
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
   <h1>Delete item data</h1>
-  <form id="updateUserForm">
+  <form id="deleteItemForm">
     <div class="user-box">
       <input type="text" id="id" name="" required="" />
       <label>item id</label>
@@ -212,5 +208,6 @@
 <script src="../app/modules/items/item_delete.js"></script>
 <script src="../app/modules/items/item_update.js"></script>
 <script src="../app/modules/items/item_get_all.js"></script>
+<script src="../app/modules/items/item_get_users_items.js"></script>
 
 </html>

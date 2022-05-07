@@ -10,7 +10,7 @@ const itemModel = require("./../items/item_model");
 
 const createItem = async (req, res) => {
   let itemData = { ...req.body };
-  //itemData.image = req.files.image.path.replace("\\", "/")
+  
   //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
   let pool = await sql.connect(config);
 
@@ -68,6 +68,26 @@ const readItemById = async (req, res) => {
       console.log(err);
       res.json(err);
     }
+};
+
+const readItemByUser = async (req, res) => {
+  let userId = req.params.id;
+  try {
+    let pool = await sql.connect(config);
+    let findUserItems = await pool
+    .request()
+    .input("fk_user_id", sql.Int, userId)
+    .query(
+      `SELECT item_name AS name, category, price, description, condition, fk_user_id, created_at AS created, image 
+      FROM dbo.sales_items WHERE fk_user_id = @fk_user_id`
+    );
+    res.json(
+      findUserItems.recordsets[0]
+      );
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
 };
 
 // update user PUT method
@@ -129,6 +149,7 @@ module.exports = {
   createItem,
   readAllItems,
   readItemById,
+  readItemByUser,
   updateItem,
   deleteItem
 };
