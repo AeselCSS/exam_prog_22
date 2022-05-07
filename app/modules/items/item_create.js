@@ -15,7 +15,7 @@ const url = `http://localhost:3000/items/`;
 
   //     await fetch('http://localhost:3000/items/', {
   //         method: "POST",
-  //         body: formData
+  //         body: formData,
   //     });
   //     .then((response) => response.json())
   //     .then((data) => {

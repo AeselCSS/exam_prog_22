@@ -69,7 +69,7 @@
   <h1>Create new item</h1>
   <form id="createItemForm" enctype="multipart/form-data">
     <div class="user-box">
-      <input type="text" id="name" name="" required="" />
+      <input type="text" id="itemName" name="" required="" />
       <label>Name</label>
     </div>
     <div class="user-box">
@@ -99,7 +99,7 @@
       <label>Condition</label>
     </div>
     <div class="user-box">
-      <input type="file" class="form-control-file" name="uploaded_file" required="" />
+      <input type="file" class="form-control-file" id="image" name="uploaded_file" required="" />
       
     </div>
 
@@ -112,34 +112,47 @@
   <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <div class="form-box">
   <h1>Update item data</h1>
-  <form id="updateItemForm">
-    <div class="user-box">
-      <input type="text" id="name" name="" required="" />
-      <label>Name</label>
-    </div>
-    <div class="user-box">
-      <input type="text" id = "username" name="" required="" />
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="text" id="email" name="" required="" />
-      <label>Email</label>
-    </div>
-    <div class="user-box">
-      <input type="password" id="password" name="" required="" />
-      <label>Password</label>
-    </div>
-    <div class="user-box">
-      <input type="text" id="city" name="" required="" />
-      <label>City</label>
-    </div>
-    <div class="user-box">
-      <input type="text" id="country" name="" required="" />
-      <label>Country</label>
-    </div>
+    <form id="updateItemForm" enctype="multipart/form-data">
+      <div class="user-box">
+        <input type="text" id="itemId" name="" required="" />
+        <label>Name</label>
+        <input type="text" id="newItemName" name="" required="" />
+        <label>Name</label>
+      </div>
+      <div class="user-box">
+        <select name="category" id="newItemCategory">
+          <option value="0">Select category:</option>
+          <option value="Cars">Cars</option>
+          <option value="Outdoor">Outdoor</option>
+          <option value="Home and Garden">Home and Garden </option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Sport and Leisure">Sport amd Leisure</option>
+          <option value="Toys">Toys</option>
+          <option value="Other">Other</option>
+        </select>
+        
+      </div>
+      <div class="user-box">
+        <input type="text" id="newItemPrice" name="" required="" />
+        <label>Price</label>
+      </div>
+      <div class="user-box">
+        <input type="text" id="newItemDescription" name="" required="" />
+        <label>Description</label>
+      </div>
+      <div class="user-box">
+        <input type="text" id="newItemCondition" name="" required="" />
+        <label>Condition</label>
+      </div>
+      <div class="user-box">
+        <input type="file" class="form-control-file" id="newItemImage" name="uploaded_file" required="" />
+        
+      </div>
+  
+      <button class="submitButton" id="update-item-btn" value="submit" type="submit">Create item</button>
+    </form>
     
-    <button class="submitButton" id="update-item-btn" value="submit" type="submit">Update item</button>
-  </form>
 </div>
 </section>
 
@@ -149,11 +162,11 @@
   <h1>Delete item data</h1>
   <form id="deleteItemForm">
     <div class="user-box">
-      <input type="text" id="id" name="" required="" />
+      <input type="text" id="destroyItemId" name="" required="" />
       <label>item id</label>
     </div>
     
-    <button class="submitButton" id="update-item-btn" value="submit" type="submit">Delete item</button>
+    <button class="submitButton" id="delete-item-btn" value="submit" type="submit">Delete item</button>
   </form>
 </div>
 </section>
@@ -165,27 +178,27 @@
   <h1>Update account data</h1>
   <form id="updateUserForm">
     <div class="user-box">
-      <input type="text" id="name" name="" required="" />
+      <input type="text" id="newname" name="" required="" />
       <label>Name</label>
     </div>
     <div class="user-box">
-      <input type="text" id = "username" name="" required="" />
+      <input type="text" id = "newusername" name="" required="" />
       <label>Username</label>
     </div>
     <div class="user-box">
-      <input type="text" id="email" name="" required="" />
+      <input type="text" id="newemail" name="" required="" />
       <label>Email</label>
     </div>
     <div class="user-box">
-      <input type="password" id="password" name="" required="" />
+      <input type="password" id="newpassword" name="" required="" />
       <label>Password</label>
     </div>
     <div class="user-box">
-      <input type="text" id="city" name="" required="" />
+      <input type="text" id="newcity" name="" required="" />
       <label>City</label>
     </div>
     <div class="user-box">
-      <input type="text" id="country" name="" required="" />
+      <input type="text" id="newcountry" name="" required="" />
       <label>Country</label>
     </div>
     
