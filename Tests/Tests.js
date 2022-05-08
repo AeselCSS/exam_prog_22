@@ -4,7 +4,7 @@ var chai= require("chai")
 var chaiHttp = require('chai-http');
 let should = chai.should();
 
-//For at teste skal køres "mocha test": 
+//For at teste skal der køres "mocha test": 
 
 
 //Test af login User funktion:
