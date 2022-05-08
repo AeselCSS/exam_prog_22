@@ -13,50 +13,94 @@
     
 </head>
 <body>
-  <!-- sidebar nav -->
+    <!-- sidebar nav -->
  <nav>
-  <a href="#testuser">Test User</a>
+  <a href="#statistics" id="statistics-btn">Statistics</a>
+  <a href="#user_management" id="user-management-btn">User Management</a>
+
+  <a href="#" id="logout-btn">Logout</a>
 </nav>
 <!-- site content -->  
 <div class= 'container'> 
- <section id= 'testuser'>
-   <h1>Test User</h1>
+ <section id= 'statistics'>
+   <h1>Search</h1>
+   <div class= "section-content"></div>
+
+</section>
+
+<section id='user_management'>
+ <h1>User Management</h1>
+
+ <div id='showUserData'></div>
+ <div class="selector" id="drop-down-users">
+   <select id="admin_select_user" name="admin_select_user">
+   <option value="Select User">Select User</option>
+   </select>
+   <button class="submitButton" id="admin-select-user-submit">GO</button>
+ </div>
 
 
-   <!-- Admin opdater bruger -->  
-   <div class="update-box">
-    <h2>Update user</h2>
-    <form id="UpdateUserForm">
+   <div class="modal-container">
+     <div class="interior">
+       <a class="btn" href="#update-user">Update User</a>
+       <a class="btn" href="#" id="delete-user-btn">Delete User</a>
+     </div>
+   </div>
+
+
+  </section>
+
+  <section id='logout'>
+    <h1>Logout</h1>
+   </section>
+
+  </div>
+
+  <section id='update-user'>
+    <a href="#user_management" title="Close" class="modal-close">Close</a>
+    <div class="form-box">
+    <h1>Update account data</h1>
+    <form id="updateUserForm">
       <div class="user-box">
-        <input type="text" name="" required="">
-        <label>username</label>
+        <input type="text" id="newname" name="" required="" />
+        <label>Name</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
+        <input type="text" id = "newusername" name="" required="" />
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="text" id="newemail" name="" required="" />
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="newpassword" name="" required="" />
         <label>Password</label>
       </div>
-      <button class="submitButton" id="submitButton" value="Submit" type="submit">Update User</button>
+      <div class="user-box">
+        <input type="text" id="newcity" name="" required="" />
+        <label>City</label>
+      </div>
+      <div class="user-box">
+        <input type="text" id="newcountry" name="" required="" />
+        <label>Country</label>
+      </div>
+  
+      <button class="submitButton" id="update-user-btn" value="submit" type="submit">Update Account</button>
     </form>
-
-
-   <!-- Admin slet bruger --> 
-
-
-
-  <!-- Admin Guldbruger --> 
-
-
-
-   <!-- Admin brugstatistikker--> 
-
-
-
-
-</div>
-<!-- user management -->
-<!-- user management end -->
-<!-- statistics-->
-<!-- statistics end-->
-
+  </div>
+  </section>
+  
+  
+  
+  <!-- ADMIN SCRIPTS -->
+  <script src="../app/modules/admin/admin_check_logged_in.js"></script>
+  <script src="../app/modules/admin/admin_logout.js"></script>
+  <script src="../app/modules/admin/admin_get_users.js"></script>
+  <script src="../app/modules/admin/admin_select_user.js"></script>
+  
+  <!-- USER SCRIPTS -->
+  <script src="../app/modules/users/user_update.js"></script>
+  <script src="../app/modules/users/user_delete.js"></script>
 </body>
 </html>
