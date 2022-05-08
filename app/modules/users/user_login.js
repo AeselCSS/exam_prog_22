@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {
-        window.alert("GET TOO THE CHOPPAAR!!!!")
+        window.alert("Either username or password is incorrect. Please try again.")
       } else {
         localStorage.setItem('user',JSON.stringify(data));
         location.href = "../../../client/index.html";

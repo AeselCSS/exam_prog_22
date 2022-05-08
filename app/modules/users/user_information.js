@@ -13,7 +13,7 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
 
 
 
-  // EXTRACT VALUE FOR HTML HEADER.
+  // get key from jsondata, so we can use them later on
   
   let col = [];
   for (let i = 0; i < data.length; i++) {
@@ -24,20 +24,20 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
     }
   }
 
-  // CREATE DYNAMIC TABLE.
+  // add the table
   let table = document.createElement("table");
 
-  // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+  // add headers from keys
 
   let tr = table.insertRow(-1); // (-1) is adding a row to the bottom of the table
 
   for (let i = 0; i < col.length; i++) {
-    let th = document.createElement("th"); // TABLE HEADER.
+    let th = document.createElement("th"); 
     th.innerHTML = col[i];
     tr.appendChild(th);
   }
 
-  // ADD JSON DATA TO THE TABLE AS ROWS.
+   // insert json data into rows and add them at the botton of the table
   for (let i = 0; i < data.length; i++) {
     tr = table.insertRow(-1);
 
@@ -47,7 +47,7 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
     }
   }
 
-  // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+  //add the entire table to html.
   let divContainer = document.getElementById("showUserData");
   divContainer.innerHTML = "";
   divContainer.appendChild(table);
