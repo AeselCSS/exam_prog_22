@@ -42,6 +42,7 @@ document.getElementById("sales-items-btn").addEventListener("click", () => {
     for (let j = 0; j < col.length; j++) {
       let tabCell = tr.insertCell(-1);
       tabCell.innerHTML = data[i][col[j]];
+      // Make the last cell an ancher, clickable
     }
   }
 
