@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
           window.alert("Either username or password is incorrect. Please try again.")
         } else {
           localStorage.setItem('admin',JSON.stringify(data));
-          location.href = "../../../client/admin_dashboard.html";
+          location.href = "../../../client/admin_dashboard.html#statistics";
       }
     })
   });

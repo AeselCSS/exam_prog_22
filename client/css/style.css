@@ -31,9 +31,8 @@ body {
 :root {
 --font-color: rgba(0, 0, 0, 0.55);
 --nav-color: rgba(255, 255, 255, 0.3);
---section-background-color: rgba(255, 255, 255, 0.1);
---contrast-color: #F2E527;
---button-color: rgba(255, 255, 255, 0.6);
+--section-background-color: rgba(255, 255, 255, 0.3);
+--button-color: rgba(255, 255, 255, 0.5);
 }
 
 .container {
@@ -65,7 +64,15 @@ nav {
     height: 100vh;
     width:min-content;
     background: var(--nav-color);
-    border-right: 1px solid rgba(0, 0, 0, 0.15);;
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+nav #site-title {
+  font-size: 24px;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px
 }
 
 section {
@@ -84,12 +91,24 @@ section {
 
 section h1 {
     color: #fff;
-    font-size: 50px;
+    font-size: 35px;
     text-transform: uppercase;
     opacity: 0;
     margin: 15px;
 }
 
+section h2 {
+  color: #fff;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+section h3 {
+  color: var(--font-color);
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 15px;
+}
 
 /* Styles applied on trigger */
 section:target {
@@ -99,30 +118,12 @@ section:target {
   width: 80%;
   height: 100%;
   z-index: 10;
-  
-  
 }
 
 section:target h1 {
   opacity: 0;
   animation: 2s fadeIn forwards .5s;
 }
-
-#user_management {
-  background: var(--secondary-color);
-}
-#second {
-    background: var(--secondary-color);
-}
-
-#third {
-    background: var(--secondary-color);
-}
-
-#fourth {
-    background: var(--secondary-color);
-}
-
 
 @keyframes fadeIn {
     100% { opacity:1 }
@@ -137,7 +138,7 @@ section:target h1 {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 999;
+  z-index: 990;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -160,8 +161,7 @@ section:target h1 {
   .modal-window header {
     font-weight: bold;
   }
-  .modal-window h1 {
-    font-size: 150%;
+  .modal-window h1, h2 {
     margin: 0 0 15px;
   }
 
@@ -171,13 +171,15 @@ section:target h1 {
   color: var(--font-color);
   line-height: 35px;
   position: absolute;
-  right: 55%;
+  right: 5%;
   text-align: center;
-  top: 4%;
+  top: 2%;
   width: 70px;
   text-decoration: none;
-  border: 1px solid var(--font-color);
+  border: 1px solid var(--nav-color);
+  background-color: var(--nav-color);
   border-radius: 5px;
+  z-index: 995;
   } 
 
   .modal-close:hover {
@@ -221,9 +223,6 @@ small {
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;
- 
-  
-  
 }
 .btn i {
   padding-right: 0.3em;
@@ -245,7 +244,7 @@ small {
 }
 
 .form-box h2 {
-  margin: 0 0 30px;
+  margin-top: 20px;
   padding: 0;
   color: #fff;
   text-align: center;
@@ -292,13 +291,11 @@ display: inline-block;
 padding: 10px 20px;
 color: rgba(255, 255, 255);
 background-color: rgba(133, 133, 133, 0.1);
-font-size: 16px;
 text-decoration: none;
 text-transform: uppercase;
 overflow: hidden;
 transition: .5s;
-margin-top: 40px;
-letter-spacing: 4px
+margin-top: 15px;
 }
 
 /* Tables */
@@ -307,6 +304,7 @@ table {
   border-collapse: collapse;
   background-color: rgba(255,255,255,.3);
   margin-bottom: 25px;
+  margin-left: 15px;
 }
 
 td, th {
@@ -321,7 +319,7 @@ td, th {
 
 .selector select, button{
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
@@ -333,12 +331,16 @@ td, th {
 display: inline-block;
 padding: 10px 20px;
 color: rgba(255, 255, 255);
-background-color: rgba(133, 133, 133, 0.1);
-font-size: 16px;
+background-color: rgba(177, 29, 29, 0.465);
+font-size: 14px;
 text-decoration: none;
 text-transform: uppercase;
 overflow: hidden;
 transition: .5s;
-margin-top: 40px;
-letter-spacing: 4px
+margin-top: 15px;
+border-radius: 5px;
+}
+
+br{
+  line-height: 900px;
 }

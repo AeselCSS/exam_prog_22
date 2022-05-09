@@ -13,21 +13,42 @@
     
 </head>
 <body>
-    <!-- sidebar nav -->
+
+                                      <!-- sidebar nav -->
  <nav>
+  <a href="#" id="site-title">Admin Panel</a>
   <a href="#statistics" id="statistics-btn">Statistics</a>
   <a href="#user_management" id="user-management-btn">User Management</a>
-
   <a href="#" id="logout-btn">Logout</a>
 </nav>
-<!-- site content -->  
+
+                                      <!-- site content -->  
 <div class= 'container'> 
- <section id= 'statistics'>
-   <h1>Search</h1>
-   <div class= "section-content"></div>
+
+                                      <!-- statistics section -->
+ <section id='statistics'>
+      <div class= "section-content">
+      <h1>Statistics</h1>
+
+      <div class="stats-box">
+      <h3>Total number of users:</h3>
+      <div id='numberOfUsers'></div>
+      </div>
+      
+      <div class="stats-box">
+      <h3>Total number of listings:</h3>
+      <div id='numberOfListings'></div>
+      </div>
+
+      <div class="stats-box">
+      <h3>Item listings per user:</h3>
+      <div id='listingsPerUser'></div>
+      </div>
+
+   </div>
 
 </section>
-
+                                      <!-- User Management section -->
 <section id='user_management'>
  <h1>User Management</h1>
 
@@ -39,28 +60,19 @@
    
    <a class="btn" href="#update-user" id="admin-select-user-submit">GO</a>
  </div>
-
-
-  <!-- <div class="modal-container">
-     <div class="interior">
-       <a class="btn" href="#update-user">Update User</a>
-       <a class="btn" href="#" id="delete-user-btn">Delete User</a>
-     </div>
-   </div>
--->
-
   </section>
-
+                                      <!-- logout -->
   <section id='logout'>
     <h1>Logout</h1>
    </section>
 
   </div>
 
+                              <!-- update / delete user -->
   <section id='update-user'>
-    <a href="#user_management" title="Close" class="modal-close">Close</a>
     <div class="form-box">
-    <h1>Update account data</h1>
+      <a href="#user_management" title="Close" class="modal-close">Close</a>
+    <h2>Update account data</h2>
     <form id="adminUpdateUserForm">
       <div class="user-box">
         <input type="text" id="newname" name="" required="" />
@@ -100,9 +112,14 @@
   
   
   
-  <!-- ADMIN SCRIPTS -->
+  <!-- ADMIN GENERAL SCRIPTS -->
   <script src="../app/modules/admin/admin_check_logged_in.js"></script>
   <script src="../app/modules/admin/admin_logout.js"></script>
+  <!-- ADMIN STATISTICS SCRIPTS -->
+  <script src="../app/modules/admin/admin_stats_number_of_users.js"></script>
+  <script src="../app/modules/admin/admin_stats_number_of_listings.js"></script>
+  <script src="../app/modules/admin/admin_stats_listings_per_user.js"></script>
+  <!-- ADMIN USER MANAGEMENT SCRIPTS -->
   <script src="../app/modules/admin/admin_get_users.js"></script>
   <script src="../app/modules/admin/admin_select_user.js"></script>
   <script src="../app/modules/admin/admin_update_user.js"></script>
