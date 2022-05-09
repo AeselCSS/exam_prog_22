@@ -77,10 +77,83 @@ const adminDeleteUser = async (req, res) => {
     }
   };
   
+// admin statistics
+// total amount of users
+
+const numberOfUsers = async (req, res) => {
+  try {
+    let pool = await sql.connect(config);
+    let users = await pool
+      .request()
+      .query(
+        ` SELECT
+            count(*) as "Total number of users"
+          FROM 
+            dbo.users;
+        `
+      ); /* change the * to whatever data is needed to be shown */
+    res.json(
+      users.recordsets[0]
+    ); /* the bracket notation ([0]) removes a set of brackets from the results */
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+// total amount of listings
+const numberOfListings = async (req, res) => {
+  try {
+    let pool = await sql.connect(config);
+    let listings = await pool
+      .request()
+      .query(
+        ` SELECT
+            count(*) as "Total number of listings"
+          FROM 
+            dbo.sales_items;
+        `
+      ); /* change the * to whatever data is needed to be shown */
+    res.json(
+      listings.recordsets[0]
+    ); /* the bracket notation ([0]) removes a set of brackets from the results */
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+//listings per user
+const listingsPerUser = async (req, res) => {
+  try {
+    let pool = await sql.connect(config);
+    let listingPerUser = await pool
+      .request()
+      .query(
+        ` SELECT
+            dbo.users.name AS "User",
+            Count(dbo.sales_items.id) AS "Number of listings"
+          FROM
+            dbo.users
+          JOIN
+            dbo.sales_items ON dbo.users.id = dbo.sales_items.fk_user_id
+          GROUP BY 
+            dbo.users.name;
+        `
+      ); /* change the * to whatever data is needed to be shown */
+    res.json(
+      listingPerUser.recordsets[0]
+    ); /* the bracket notation ([0]) removes a set of brackets from the results */
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
 
 
 module.exports = {
   adminUpdateUser,
   adminDeleteUser,
   adminLogin,
+  numberOfUsers,
+  numberOfListings,
+  listingsPerUser
 };

@@ -52,27 +52,7 @@ const createUser = async (req, res) => {
   
 };
 
-// user login
 
-const userLogin = async (req, res) => {
-  try {
-      let userData = { ...req.body };
-      let pool = await sql.connect(config);
-
-      let findUser = await pool
-      .request()
-      .input("username", sql.NVarChar, userData.username)
-      .input("password", sql.NVarChar, userData.password)
-      .query(
-        `SELECT id FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
-      res.send(findUser.recordsets[0]);
-      
-   // }
-  } catch (err) {
-    console.log(err);
-    res.json(err);
-  }
-};
 
 // read all users GET method
 const readAllUsers = async (req, res) => {
@@ -163,7 +143,27 @@ const deleteUser = async (req, res) => {
 };
 
 // ** other user operators **
+// user login
 
+const userLogin = async (req, res) => {
+  try {
+      let userData = { ...req.body };
+      let pool = await sql.connect(config);
+
+      let findUser = await pool
+      .request()
+      .input("username", sql.NVarChar, userData.username)
+      .input("password", sql.NVarChar, userData.password)
+      .query(
+        `SELECT id FROM dbo.users WHERE dbo.users.username = @username AND dbo.users.password = @password`);
+      res.send(findUser.recordsets[0]);
+      
+   // }
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
 
 // app.get('/login', checkNotAuthenticated, (req, res) => {
 //   res.render('../../../client/login.html')

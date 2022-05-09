@@ -11,5 +11,10 @@ adminRouter.delete("/admin/:id", adminDAL.adminDeleteUser);
 // admin login route
 adminRouter.post("/admin/login", adminDAL.adminLogin);
 
+// admin statistics route
+adminRouter.get("/admin/stats/numberofusers", adminDAL.numberOfUsers);
+adminRouter.get("/admin/stats/numberoflistings", adminDAL.numberOfListings);
+adminRouter.get("/admin/stats/listingsperuser", adminDAL.listingsPerUser);
+
 // export
 module.exports = adminRouter;
