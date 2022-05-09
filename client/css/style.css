@@ -341,6 +341,21 @@ margin-top: 15px;
 border-radius: 5px;
 }
 
+#delete-item-btn {
+  position: relative;
+display: inline-block;
+padding: 10px 20px;
+color: rgba(255, 255, 255);
+background-color: rgba(177, 29, 29, 0.465);
+font-size: 14px;
+text-decoration: none;
+text-transform: uppercase;
+overflow: hidden;
+transition: .5s;
+margin-top: 15px;
+border-radius: 5px;
+}
+
 br{
   line-height: 900px;
 }

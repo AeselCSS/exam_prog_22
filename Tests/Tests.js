@@ -1,8 +1,8 @@
 //UNIT TESTS
 
-var chai= require("chai")
-var chaiHttp = require('chai-http');
-let should = chai.should();
+const chai= require("chai")
+const chaiHttp = require('chai-http');
+const should = chai.should();
 
 //For at teste skal der køres "mocha test": 
 
@@ -15,7 +15,7 @@ describe("Testing user login API endpoint", function(){
     it ("should return status 200 if user is logged on ", function (done) {
         chai.request('http://localhost:3000/users')
             .post('login')
-            .send({email:"hejhej.com", password:"123"})
+            .send({username:"Lise", password:"Andersen"})
             .end((err, res) => {
                   res.should.have.status(200)
               done();
@@ -27,7 +27,7 @@ describe("Testing user login API endpoint", function(){
     it ("should return status 401 on bad user login ", function (done) {
         chai.request('http://localhost:3000/users')
             .post('login')
-            .send({email:"hejhej.com", password:"forkertkode"})
+            .send({username:"Lise", password:"forkertkode"})
             .end((err, res) => {
                   res.should.have.status(401)
               done();
@@ -38,7 +38,7 @@ describe("Testing user login API endpoint", function(){
     it ("should return a token on good user login", function(done) {
         chai.request('http://localhost:3000/users')
         .post("login")
-        .send({email:"hejhej.com", password:"123"})
+        .send({username:"Lise", password:"Andersen"})
         .end((err,res) => {
             res.should.have.status(200)
             res.body.should.be.instanceOf(Object)
@@ -52,6 +52,7 @@ describe("Testing user login API endpoint", function(){
 
 //Test af log ind Admin funktion
 
+/*
 //Korrekt log ind 
 describe("Testing admin login API endpoint", function(){
     it ("should return status 200 on good admin login", function (done) {
@@ -89,3 +90,62 @@ describe("Testing admin login API endpoint", function(){
 
     })
 })
+*/
+
+
+//     })
+// })
+
+
+
+
+
+//Test af login User funktion:
+
+//Unit test
+//UNIT TESTS
+
+// const { expect } = require("chai");
+// var chai= require("chai")
+// var chaiHttp = require('chai-http');
+// const app = require("../server")
+// //let should = chai.should();
+
+//For at teste skal der køres "mocha test": 
+
+//Test af login User funktion:
+
+// //Korrekt log ind 
+// chai.use(chaiHttp);
+// describe("Testing user login API endpoint", function(){
+
+//     it ("should return status 200 on correct login ", function (done) {
+//         chai.request(app)
+//             .post('/users/login')
+//             .set("Content-Type", "application/json")
+//             .send({username:"test_user", password:"test_user"})
+//             .end((err, res) => {
+//                   expect(err).to.be.null;
+//                   expect(res.statusCode).to.equal(200);
+//                   expect(res).to.be.json;
+//                   expect(res.body).to.be.an("array").with.lengthOf(0); //That contains an object/json
+//               done();
+//             });
+//     })
+
+//     //Forkert kode
+
+//     it ("should return failed to login with wrong login information ", function (done) {
+//         chai.request(app)
+//             .post('/users/login')
+//             .set("Content-Type", "application/json")
+//             .send({username:"test_user", password:"test_user111"})
+//             .end((err, res) => {
+//                   expect(err).to.be.null;
+//                   expect(res.statusCode).to.equal(200);
+//                   expect(res).to.be.json;
+//                   expect(res.body).to.be.an("array").with.lengthOf(0); 
+//               done();
+//             });
+//     })
+// });
