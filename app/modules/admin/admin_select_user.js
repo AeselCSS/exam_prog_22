@@ -1,5 +1,5 @@
 
-// insert db response data into html select element
+// insert db response data into html select element as options
 
 const url = 'http://localhost:3000/users/';
 document.getElementById("user-management-btn").addEventListener("click", () => {
@@ -20,9 +20,13 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
            option.value = users[i].id;
 
            adminSelectUser.options.add(option);
+
        }
-
-
+       document.getElementById("admin_select_user").addEventListener("change",() => {
+        localStorage.setItem('selectedUser',(adminSelectUser.value)); 
+     })
        })
-
+       
      });
+
+     

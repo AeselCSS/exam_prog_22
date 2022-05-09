@@ -36,17 +36,18 @@
    <select id="admin_select_user" name="admin_select_user">
    <option value="Select User">Select User</option>
    </select>
-   <button class="submitButton" id="admin-select-user-submit">GO</button>
+   
+   <a class="btn" href="#update-user" id="admin-select-user-submit">GO</a>
  </div>
 
 
-   <div class="modal-container">
+  <!-- <div class="modal-container">
      <div class="interior">
        <a class="btn" href="#update-user">Update User</a>
        <a class="btn" href="#" id="delete-user-btn">Delete User</a>
      </div>
    </div>
-
+-->
 
   </section>
 
@@ -60,7 +61,7 @@
     <a href="#user_management" title="Close" class="modal-close">Close</a>
     <div class="form-box">
     <h1>Update account data</h1>
-    <form id="updateUserForm">
+    <form id="adminUpdateUserForm">
       <div class="user-box">
         <input type="text" id="newname" name="" required="" />
         <label>Name</label>
@@ -85,9 +86,15 @@
         <input type="text" id="newcountry" name="" required="" />
         <label>Country</label>
       </div>
+      <div class="user-box">
+        <input type="checkbox" id="goldmember_status" name="" value="True">
+        <label>Goldmemeber?</label>
+      </div>
   
-      <button class="submitButton" id="update-user-btn" value="submit" type="submit">Update Account</button>
+      <button class="submitButton" id="update-user-btn" value="submit" type="submit">Update User</button>
     </form>
+    
+    <a href="#" id="delete-user-btn">Delete User</a>
   </div>
   </section>
   
@@ -98,9 +105,8 @@
   <script src="../app/modules/admin/admin_logout.js"></script>
   <script src="../app/modules/admin/admin_get_users.js"></script>
   <script src="../app/modules/admin/admin_select_user.js"></script>
+  <script src="../app/modules/admin/admin_update_user.js"></script>
+  <script src="../app/modules/admin/admin_delete_user.js"></script>
   
-  <!-- USER SCRIPTS -->
-  <script src="../app/modules/users/user_update.js"></script>
-  <script src="../app/modules/users/user_delete.js"></script>
 </body>
 </html>
