@@ -78,7 +78,7 @@ const readItemByUser = async (req, res) => {
     .request()
     .input("fk_user_id", sql.Int, userId)
     .query(
-      `SELECT item_name AS name, category, price, description, condition, fk_user_id, created_at AS created, image 
+      `SELECT id, item_name AS name, category, price, description, condition, fk_user_id, created_at AS created, image 
       FROM dbo.sales_items WHERE fk_user_id = @fk_user_id`
     );
     res.json(
@@ -104,8 +104,6 @@ const updateItem = async (req, res) => {
         .input("price", sql.Int, itemData.price)
         .input("description", sql.NVarChar, itemData.description)
         .input("condition", sql.NVarChar, itemData.condition)
-        .input("fk_user_id", sql.Int, itemData.fk_user_id)
-        .input("item_status_active", sql.Bit, itemData.item_status_active)
         .input("image", sql.NVarChar, itemData.image)
         .query(
           `UPDATE dbo.sales_items SET
@@ -114,8 +112,6 @@ const updateItem = async (req, res) => {
               price = @price,
               description = @description,
               condition = @condition,
-              fk_user_id = @fk_user_id,
-              item_status_active = @item_status_active,
               updated_at = CURRENT_TIMESTAMP,
               image = @image
               WHERE id = @id

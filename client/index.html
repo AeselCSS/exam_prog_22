@@ -50,10 +50,16 @@
   <div class="modal-container">
     <div class="interior">
       <a class="btn" href="#create-item">Create item</a>
-      <a class="btn" href="#update-item">Update item</a>
-      <a class="btn" href="#delete-item">Delete item</a>
     </div>
     
+    </div>
+    <br>
+    <div class="selector" id="drop-down-items">
+      <select id="user_select_item" name="user_select_item">
+      <option value="Select Item">Select Item</option>
+      </select>
+
+      <a class="btn" href="#update-item" id="admin-select-user-submit">GO</a>
   </div>
 
  </section>
@@ -121,8 +127,6 @@
   <h1>Update item data</h1>
     <form id="updateItemForm" enctype="multipart/form-data">
       <div class="user-box">
-        <input type="text" id="itemId" name="" required="" />
-        <label>Name</label>
         <input type="text" id="newItemName" name="" required="" />
         <label>Name</label>
       </div>
@@ -157,13 +161,14 @@
         </select>
       </div>
       <div class="user-box">
-        <input type="file" class="form-control-file" id="newItemImage" name="uploaded_file" required="" />
+        <input type="file" class="form-control-file" id="newItemImage" name="uploaded_image" required="" />
         
       </div>
   
-      <button class="submitButton" id="update-item-btn" value="submit" type="submit">Create item</button>
+      <button class="submitButton" id="update-item-btn" value="submit" type="submit">Update item</button>
     </form>
     
+    <a href="#" id="delete-item-btn">Delete Item</a>
 </div>
 </section>
                                                 <!--DELETE ITEM -->
@@ -231,6 +236,7 @@
 <script src="../app/modules/items/item_create.js"></script>
 <script src="../app/modules/items/item_delete.js"></script>
 <script src="../app/modules/items/item_update.js"></script>
+<script src="../app/modules/items/item_select.js"></script>
 <script src="../app/modules/items/item_get_all.js"></script>
 <script src="../app/modules/items/item_get_users_items.js"></script>
 

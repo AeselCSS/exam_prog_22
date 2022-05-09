@@ -17,7 +17,7 @@ itemRouter.post("/items/createItem", itemDAL.createItem);
 itemRouter.get("/items", itemDAL.readAllItems);
 itemRouter.get("/items/:id", itemDAL.readItemById); //note to self: / before : is very important
 itemRouter.get("/items/fromUser/:id", itemDAL.readItemByUser);
-itemRouter.put("/items/:id", itemDAL.updateItem);
+itemRouter.put("/items/", itemDAL.updateItem); //Kan godt være det er den der duplikere
 itemRouter.delete("/items/:id", itemDAL.deleteItem);
 
 
