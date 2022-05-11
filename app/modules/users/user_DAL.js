@@ -60,7 +60,7 @@ const readAllUsers = async (req, res) => {
       .request()
       .query(
         `SELECT
-        dbo.users.id AS 'User Id',
+        dbo.users.id AS 'User_Id',
         dbo.users.name AS 'Name',
         dbo.users.username AS 'Username',
         dbo.users.email AS 'Email',

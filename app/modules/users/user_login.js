@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
        username: username,
        password: password
        };
-    console.log(user);
+    //console.log(user);
 
     fetch("http://localhost:3000/users/login", {
     method: "POST",

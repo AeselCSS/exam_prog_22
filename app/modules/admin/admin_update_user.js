@@ -4,7 +4,7 @@ document.getElementById("adminUpdateUserForm").addEventListener("submit", (event
     event.preventDefault();
   
     // Find existing users id and add it to the url
-    const user = JSON.parse(localStorage.getItem("selectedUser"));
+    const userId = JSON.parse(localStorage.getItem("selectedUser"));
     let url = `http://localhost:3000/admin/`;
     
 //     window.alert(userId);  /* for testing */
@@ -20,7 +20,7 @@ document.getElementById("adminUpdateUserForm").addEventListener("submit", (event
     const goldmemberStatus = document.getElementById("goldmember_status").value;
   
     updatedUser = {
-        id: user,
+        id: userId,
         name: newName,
         username: newUsername,
         email: newEmail,
