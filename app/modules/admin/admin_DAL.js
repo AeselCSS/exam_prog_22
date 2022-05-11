@@ -10,7 +10,7 @@ const adminUpdateUser = async (req, res) => {
     let alterUser = await pool
       .request()
       .input("id", sql.Int, userData.id)
-      .input("fullName", sql.NVarChar, userData.name)
+      .input("name", sql.NVarChar, userData.name)
       .input("username", sql.NVarChar, userData.username)
       .input("email", sql.NVarChar, userData.email)
       .input("password", sql.NVarChar, userData.password)
@@ -19,7 +19,7 @@ const adminUpdateUser = async (req, res) => {
       .input("is_goldmember", sql.Bit, userData.isGoldmember)
       .query(
         `UPDATE dbo.users SET
-            name = @fullName,
+            name = @name,
             username = @username,
             email = @email,
             password = @password,

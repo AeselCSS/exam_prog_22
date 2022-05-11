@@ -16,14 +16,17 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
        for (let i = 0; i < users.length; i++) {
            let option = document.createElement("option");
 
-           option.innerHTML = users[i].name;
-           option.value = users[i].id;
+           option.innerHTML = users[i].Name;
+           option.value = users[i].User_Id;
 
            adminSelectUser.options.add(option);
+
+           //window.alert(option.value)
 
        }
        document.getElementById("admin_select_user").addEventListener("change",() => {
         localStorage.setItem('selectedUser',(adminSelectUser.value)); 
+        //window.alert(adminSelectUser.value)
      })
        })
        
