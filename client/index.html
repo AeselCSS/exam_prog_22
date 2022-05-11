@@ -12,6 +12,7 @@
 <body>
                                             <!-- NAV SIDEBAR -->
  <nav>
+  <a href="#" id="site-title">Market22</a>
   <a href="#search" id="search-btn">Search</a>
   <a href="#user_management" id="user-management-btn">User Management</a>
   <a href="#sales_items" id="sales-items-btn">Sales Items</a>
@@ -24,7 +25,86 @@
    <h1>Search</h1>
    <div class= "section-content">
 
-    <p class="data-table" id='showSearchData'></p>
+    <h3>Search filters</h3>
+    <div class="filters">
+
+      <!-- FILTER BY PRICE -->
+    <div class="filters-box">
+      <p>Maximum Price</p>
+      <select name="price" id="filterPriceSelect">
+        <option value="0">Select max price:</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+        <option value="2000">2000</option>
+        <option value="5000">5000</option>
+        <option value="999999999">Unlimited</option>
+      </select>
+      <a class="btn" id="applyPriceFilter">Apply Filter</a>
+    </div>
+
+    <!-- FILTER BY CONDITION -->
+    <div class="filters-box">
+      <p>Condition</p>
+      <select name="condition" id="filterConditionSelect">
+        <option value="0">Select condition:</option>
+        <option value="New">New</option>
+        <option value="Used">Used</option>
+        <option value="Worn">Worn</option>
+      </select>
+      <a class="btn" id="applyConditionFilter">Apply Filter</a>
+    </div>
+
+    <!-- FILTER BY LOCATION -->
+    <div class="filters-box">
+      <p>Location</p>
+    <select name="location" id="filterLocationSelect">
+      <option value="Select Location">Select Location</option>
+    </select>
+    <a class="btn" id="applyLocationFilter">Apply Filter</a>
+  </div>
+
+    <!-- FILTER BY TIME -->
+
+    <div class="filters-box">
+      <p>Time</p>
+      <select name="days" id="filterTimeSelect">
+        <option value="0">Select time:</option>
+        <option value="7">Less than 1 week</option>
+        <option value="14">Less than 2 weeks</option>
+        <option value="30">Less than 1 month</option>
+      </select>
+      <a class="btn" id="applyTimeFilter">Apply Filter</a>
+    </div>  
+
+    <!-- FILTER BY CATEGORY -->
+    <div class="filters-box">
+    <p>Category</p>
+      <select name="category" id="filterCategorySelect">
+        <option value="0">Select category:</option>
+        <option value="Cars">Cars</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Home and Garden">Home and Garden </option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Sport and Leisure">Sport amd Leisure</option>
+        <option value="Toys">Toys</option>
+        <option value="Other">Other</option>
+      </select>
+      <a class="btn" id="applyCategoryFilter">Apply Filter</a>
+    </div>
+  </div>
+  
+    <div class="data-table" id='showSearchData'></div> <!--MAIN SEARCH // READ ALL ITEMS -->
+
+
+    <div class="selector" id="drop-down-users">
+      <select id="select_searched_item" name="select_searched_item">
+      <option value="Select User">Select item</option>
+      </select>
+
+      <a href="#item_details" class="btn" id="select_searched_item_submit">GO</a>
+    </div>
+
 
    </div>
 
@@ -46,14 +126,13 @@
                                               <!--SALES ITEMS SECTION -->
 <section id='sales_items'>
   <h1>Sales items</h1>
-  <p class="data-table" id='showUserItems'></p>
+  <h3>My sales items</h3>
+  <div class="data-table" id='showUserItems'></div>
   <div class="modal-container">
     <div class="interior">
       <a class="btn" href="#create-item">Create item</a>
     </div>
-    
     </div>
-    <br>
     <div class="selector" id="drop-down-items">
       <select id="user_select_item" name="user_select_item">
       <option value="Select Item">Select Item</option>
@@ -62,6 +141,8 @@
       <a class="btn" href="#update-item" id="admin-select-user-submit">GO</a>
   </div>
 
+  <h3>My followed items</h3>
+  <div class="data-table" id='showfollowedItems'></div>
  </section>
                                                 <!-- LOGOUT -->
 <section id='logout'>
@@ -70,10 +151,23 @@
 
 </div>
 </div>
+                                            <!--ITEM DETAILS -->
+<section id='item_details'>
+  <div class= "section-content">
+    <a href="#search" title="Close" class="modal-close">Close</a>
+    <h2>Item details</h2>
+    <div id="showItemDetails"></div>
+    <div id="showItemImage"></div>
+    
+    <a class="btn" id="follow-item-btn">Follow this item</a>
+
+  </div>
+</section>
                                             <!--CREATE ITEM -->
 <section id='create-item'>
-  <a href="#sales_items" title="Close" class="modal-close">Close</a>
+  
   <div class="form-box">
+    <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <h1>Create new item</h1>
   <form id="createItemForm">
     <div class="user-box">
@@ -122,8 +216,9 @@
 </section>
                                               <!--UPDATE ITEM -->
 <section id='update-item'>
-  <a href="#sales_items" title="Close" class="modal-close">Close</a>
+  
   <div class="form-box">
+    <a href="#sales_items" title="Close" class="modal-close">Close</a>
   <h1>Update item data</h1>
     <form id="updateItemForm" enctype="multipart/form-data">
       <div class="user-box">
@@ -189,8 +284,9 @@
 
                                               <!--UPDATE USER -->
 <section id='update-user'>
-  <a href="#user_management" title="Close" class="modal-close">Close</a>
+  
   <div class="form-box">
+    <a href="#user_management" title="Close" class="modal-close">Close</a>
   <h1>Update account data</h1>
   <form id="updateUserForm">
     <div class="user-box">
@@ -239,5 +335,20 @@
 <script src="../app/modules/items/item_select.js"></script>
 <script src="../app/modules/items/item_get_all.js"></script>
 <script src="../app/modules/items/item_get_users_items.js"></script>
+<script src="../app/modules/items/item_details.js"></script>
+<script src="../app/modules/items/item_details_image.js"></script>
+<script src="../app/modules/items/item_details_follow_item.js"></script>
+<script src="../app/modules/items/item_followed_items.js"></script>
+
+
+<!-- ITEM SEARCH & FILTER SCRIPTS -->
+<script src="../app/modules/items/item_search_main.js"></script>
+<script src="../app/modules/items/item_search_select_item.js"></script>
+<script src="../app/modules/items/item_search_filter_category.js"></script>
+<script src="../app/modules/items/item_search_filter_condition.js"></script>
+<script src="../app/modules/items/item_search_filter_location.js"></script>
+<script src="../app/modules/items/item_search_filter_location_select.js"></script>
+<script src="../app/modules/items/item_search_filter_price.js"></script>
+<script src="../app/modules/items/item_search_filter_time.js"></script>
 
 </html>

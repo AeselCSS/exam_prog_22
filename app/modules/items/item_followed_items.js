@@ -1,9 +1,7 @@
-//user = JSON.parse(window.localStorage.getItem('user'));
+const currentUser = JSON.parse(window.localStorage.getItem('user'));
 
 document.getElementById("sales-items-btn").addEventListener("click", () => {
-//  window.alert(user[0].id) /*<-- for testing */
-//  }); /*<-- for testing */
-  fetch(`http://localhost:3000/items/fromUser/${user[0].id}`, {
+  fetch(`http://localhost:3000/items/follow/${currentUser[0].id}`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -47,7 +45,7 @@ document.getElementById("sales-items-btn").addEventListener("click", () => {
   }
 
   //add the entire table to html.
-  let divContainer = document.getElementById("showUserItems");
+  let divContainer = document.getElementById("showfollowedItems");
   divContainer.innerHTML = "";
   divContainer.appendChild(table);
 

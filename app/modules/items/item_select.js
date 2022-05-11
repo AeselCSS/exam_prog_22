@@ -12,7 +12,7 @@ document.getElementById("sales-items-btn").addEventListener("click", () => {
         for (let i = 0; i < items.length; i++) {
             let option = document.createElement("option");
  
-            option.innerHTML = items[i].name;
+            option.innerHTML = items[i].Name;
             option.value = items[i].id;
  
             userSelectItem.options.add(option);

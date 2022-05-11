@@ -52,8 +52,6 @@ const createUser = async (req, res) => {
   
 };
 
-
-
 // read all users GET method
 const readAllUsers = async (req, res) => {
   try {
@@ -61,7 +59,18 @@ const readAllUsers = async (req, res) => {
     let users = await pool
       .request()
       .query(
-        `SELECT * FROM dbo.users`
+        `SELECT
+        dbo.users.id AS 'User Id',
+        dbo.users.name AS 'Name',
+        dbo.users.username AS 'Username',
+        dbo.users.email AS 'Email',
+        dbo.users.password AS 'Password',
+        dbo.users.city AS 'City',
+        dbo.users.country AS 'Country',
+        FORMAT(dbo.users.created_at, 'dd.MM.yy') AS 'Created date',
+        FORMAT(dbo.users.updated_at, 'dd.MM.yy') AS 'Last updated'
+    FROM
+        dbo.users`
       ); /* change the * to whatever data is needed to be shown */
     res.json(
       users.recordsets[0]
@@ -164,19 +173,6 @@ const userLogin = async (req, res) => {
     res.json(err);
   }
 };
-
-// app.get('/login', checkNotAuthenticated, (req, res) => {
-//   res.render('../../../client/login.html')
-// })
-
-// app.post('/login', passport.authenticate('local', {
-//     successRedirect: '/index',
-//     failureRedirect: '/login',
-//     //show message from passport-config
-//     failureFlash: true
-//     //Remember to show it in the html syntax for messages.error!!!
-// }))
-
 
 module.exports = {
   createUser,

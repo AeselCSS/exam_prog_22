@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 html {
   height: 100%;
@@ -14,6 +15,7 @@ body {
     margin:0;
     padding:0;
     font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
     background-image: url('../img/3491270.jpg');
     background-size: cover;
     background-position: center;
@@ -68,7 +70,8 @@ nav {
 }
 
 nav #site-title {
-  font-size: 24px;
+  font-family: 'Lobster', cursive;
+  font-size: 34px;
     color: rgba(0, 0, 0, 0.75);
     font-weight: bold;
     text-decoration: underline;
@@ -223,7 +226,16 @@ small {
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;
-}
+  padding: 10px 20px;
+  color: rgba(255, 255, 255);
+  background-color: rgba(50, 50, 50, 0.465);
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 15px;
+  border-radius: 5px;
+  }
+
 .btn i {
   padding-right: 0.3em;
 }
@@ -313,8 +325,10 @@ td, th {
 }
 
 .data-table{
-  margin-top: 1rem;
+  margin-top: 15px;
   margin-bottom: 1rem;
+  max-height: 500px;
+  overflow: auto;
 }
 
 .selector select, button{
@@ -326,13 +340,13 @@ td, th {
   background: var(--button-color);
 }
 
-#delete-user-btn {
+#delete-user-btn, #delete-item-btn {
   position: relative;
 display: inline-block;
 padding: 10px 20px;
 color: rgba(255, 255, 255);
 background-color: rgba(177, 29, 29, 0.465);
-font-size: 14px;
+font-size: 12px;
 text-decoration: none;
 text-transform: uppercase;
 overflow: hidden;
@@ -341,21 +355,47 @@ margin-top: 15px;
 border-radius: 5px;
 }
 
-#delete-item-btn {
-  position: relative;
-display: inline-block;
-padding: 10px 20px;
-color: rgba(255, 255, 255);
-background-color: rgba(177, 29, 29, 0.465);
-font-size: 14px;
-text-decoration: none;
-text-transform: uppercase;
-overflow: hidden;
-transition: .5s;
-margin-top: 15px;
-border-radius: 5px;
-}
+
 
 br{
   line-height: 900px;
 }
+
+.filters-box {
+  margin: 5px;
+  background-color: var(--section-background-color);
+  width: 160px;
+  border-radius: 5px;
+  padding: 5px;
+  
+}
+
+.filters-box a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: var(--font-color);
+  padding: 0.3rem;
+  border: solid 1px #666;
+  border-radius: 5px;
+  background: var(--button-color);
+}
+
+.filters-box select {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.selector{
+  margin-left: 15px;
+}
+
+.filters {
+  display: flex;
+  margin-left: 10px;
+} 
+
+iframe {
+  height: 200px;
+  width: 200px;
+}
+
