@@ -1,3 +1,5 @@
+//Link til tabel: "https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm"
+
 const filterLocationValue = document.getElementById("filterLocationSelect")
 
 document.getElementById("filterLocationSelect").addEventListener("change",() => {

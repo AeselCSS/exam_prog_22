@@ -1,3 +1,4 @@
+//Link til tabel: "https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm"
 
 const user = JSON.parse(window.localStorage.getItem('user'));
 document.getElementById("user-management-btn").addEventListener("click", () => {

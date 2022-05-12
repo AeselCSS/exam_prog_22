@@ -1,5 +1,5 @@
 
-
+//Link til tabel: "https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm"
 
 document.getElementById("select_searched_item_submit").addEventListener("click", () => {
 
