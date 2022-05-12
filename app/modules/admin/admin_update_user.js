@@ -19,6 +19,7 @@ document.getElementById("adminUpdateUserForm").addEventListener("submit", (event
     const newCountry = document.getElementById("newcountry").value;
     const goldmemberStatus = document.getElementById("goldmember_status").value;
   
+    //Save it to a object
     updatedUser = {
         id: userId,
         name: newName,
@@ -36,6 +37,7 @@ document.getElementById("adminUpdateUserForm").addEventListener("submit", (event
       headers: {
         "Content-Type": "application/json",
       },
+      //Send object as a json
       body: JSON.stringify(updatedUser),
     })
       .then((response) => response.json())

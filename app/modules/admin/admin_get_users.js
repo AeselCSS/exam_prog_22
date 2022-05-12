@@ -1,6 +1,7 @@
 //Link til tabel: "https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm"
 
 document.getElementById("user-management-btn").addEventListener("click", () => {
+  //on the click we GET the information
     fetch(`http://localhost:3000/users/`, {
       method: "GET",
     })

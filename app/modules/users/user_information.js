@@ -9,6 +9,7 @@ document.getElementById("user-management-btn").addEventListener("click", () => {
   })
     .then((res) => res.json())
     .then((output) => {
+      //Were gonna use the data given from our GET request to create a table
       let data =output;
       console.log (data)
 

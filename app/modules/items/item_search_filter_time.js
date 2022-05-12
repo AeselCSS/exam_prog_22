@@ -9,7 +9,7 @@ document.getElementById("filterTimeSelect").addEventListener("change",() => {
 
 document.getElementById("applyTimeFilter").addEventListener("click", () => {
     const filterTimeInput = JSON.parse(localStorage.getItem("filterValue"))
-           
+           //We will fetch the time we need to filter on in the DAL
         fetch(`http://localhost:3000/items/filter/days/${filterTimeInput}`, {
         method: "GET", })
         .then((res) => res.json())

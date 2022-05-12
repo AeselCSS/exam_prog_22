@@ -1,11 +1,13 @@
 //Link til tabel: "https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm"
 
 document.getElementById("statistics-btn").addEventListener("click", () => {
+  //on the click we GET the information
     fetch(`http://localhost:3000/admin/stats/numberoflistings`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((output) => {
+        //Gonna use the data send to create a table
         let data = output;
         console.log(data);
   

@@ -9,7 +9,7 @@ document.getElementById("filterConditionSelect").addEventListener("change",() =>
 
 document.getElementById("applyConditionFilter").addEventListener("click", () => {
     const filterConditionInput = localStorage.getItem("filterValue")
-           
+           //We will fetch the condition we need to filter on in the DAL
         fetch(`http://localhost:3000/items/filter/condition/${filterConditionInput}`, {
         method: "GET", })
         .then((res) => res.json())

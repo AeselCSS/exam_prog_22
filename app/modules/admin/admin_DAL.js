@@ -6,7 +6,9 @@ const adminModel = require("./../admin/admin_model");
 const adminUpdateUser = async (req, res) => {
   try {
     let userData = { ...req.body };
+    //We need to await the connection first in the asynchronic function
     let pool = await sql.connect(config);
+    //connection first
     let alterUser = await pool
       .request()
       .input("id", sql.Int, userData.id)
