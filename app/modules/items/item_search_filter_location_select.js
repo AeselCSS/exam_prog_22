@@ -11,6 +11,7 @@ document.getElementById("search").addEventListener("click", () => {
 
         for (let i = 0; i < items.length; i++) {
             let option = document.createElement("option");
+            //to show all the locations stored
 
             option.innerHTML = items[i].Location;
             option.value = items[i].Location;

@@ -7,7 +7,7 @@ document.getElementById("filterPriceSelect").addEventListener("change",() => {
 
 document.getElementById("applyPriceFilter").addEventListener("click", () => {
     const filterPriceInput = JSON.parse(localStorage.getItem("filterValue"))
-           
+           //We will fetch the price we need to filter on in the DAL
         fetch(`http://localhost:3000/items/filter/price/${filterPriceInput}`, {
         method: "GET", })
         .then((res) => res.json())

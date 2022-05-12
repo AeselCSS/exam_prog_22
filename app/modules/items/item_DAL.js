@@ -10,10 +10,8 @@ const itemModel = require("./../items/item_model");
 
 const createItem = async (req, res) => {
   let itemData = { ...req.body };
-  // let imageData = { ...req.file}
-  //const itemData = new itemModel(req.body.itemName, req.body.category, req.body.price, req.body.image, req.body.description, req.body.condition);
+//We need to await the connection first in the asynchronic function
   let pool = await sql.connect(config);
-
   let newItem = await pool.request().query(`
       INSERT INTO dbo.sales_items (item_name, category, price, description, condition, fk_user_id, created_at, updated_at, image)
       VALUES(

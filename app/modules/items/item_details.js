@@ -2,10 +2,10 @@
 
 
 document.getElementById("select_searched_item_submit").addEventListener("click", () => {
-
+ //On the click we GET the data
     const itemDetail = JSON.parse(localStorage.getItem("selectedItemId"));
     let url = `http://localhost:3000/items/${itemDetail}`;
-
+ //fetch the item id stored in the local storage to use a GET request for in the DA
     fetch(url, {
       method: "GET",
     })

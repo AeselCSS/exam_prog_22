@@ -20,15 +20,6 @@ document
     const user = JSON.parse(localStorage.getItem("user"));
     const itemOwner = user[0].id;
 
-    // const item = {
-    //   item_name: item_name,
-    //   category: category,
-    //   price: price,
-    //   description: description,
-    //   condition: condition,
-    //   fk_user_id: itemOwner,
-    //   image: image
-    // }
 
     const imageUploaded = document.getElementById("image").files[0]//Vi skal bruge hele filen og ikke bare lokation
     const formData = new FormData() //Cloudinary bruger data payload

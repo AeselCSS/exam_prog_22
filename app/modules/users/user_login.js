@@ -31,8 +31,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {
+        //If the data given is returned empty then the user will stay at the login page and be given the window.alert() 
+        //Not the best solution we know
         window.alert("Either username or password is incorrect. Please try again.")
       } else {
+        //Needed to allow user to stay logged in
         localStorage.setItem('user',JSON.stringify(data));
         location.href = "../../../client/index.html";
     }
