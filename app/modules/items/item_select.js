@@ -11,8 +11,9 @@ document.getElementById("sales-items-btn").addEventListener("click", () => {
  
         for (let i = 0; i < items.length; i++) {
             let option = document.createElement("option");
- 
+          //what is shown in the select
             option.innerHTML = items[i].Name;
+            //what value is stored in the select
             option.value = items[i].id;
  
             userSelectItem.options.add(option);

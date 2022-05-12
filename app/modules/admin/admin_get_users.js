@@ -1,4 +1,5 @@
 document.getElementById("user-management-btn").addEventListener("click", () => {
+  //on the click we GET the information
     fetch(`http://localhost:3000/users/`, {
       method: "GET",
     })

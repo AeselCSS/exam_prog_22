@@ -22,5 +22,7 @@ sql.on('error', error => {
 let connection;
 sql.connect(config).then(pool => {
     connection = pool;
+    //console log if there is a connection
+    //use dotenv to hide private information
     console.log (`Connected to ${process.env.DB_SERVER}`)
 })

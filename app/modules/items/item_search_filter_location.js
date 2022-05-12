@@ -7,7 +7,7 @@ document.getElementById("filterLocationSelect").addEventListener("change",() => 
 
 document.getElementById("applyLocationFilter").addEventListener("click", () => {
     const filterLocationInput = localStorage.getItem("filterValue")
-           
+           //We will fetch the location we need to filter on in the DAL
         fetch(`http://localhost:3000/items/filter/location/${filterLocationInput}`, {
         method: "GET", })
         .then((res) => res.json())

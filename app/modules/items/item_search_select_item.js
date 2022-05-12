@@ -12,8 +12,9 @@ document.getElementById("search-btn").addEventListener("click", () => {
  
         for (let i = 0; i < items.length; i++) {
             let option = document.createElement("option");
- 
+            //what is show in select
             option.innerHTML = items[i].ItemID;
+            //what value is stored in the select
             option.value = items[i].ItemID;
  
             searchSelectItem.options.add(option);

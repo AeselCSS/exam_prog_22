@@ -1,4 +1,5 @@
 document.getElementById("statistics-btn").addEventListener("click", () => {
+  //On the click we GET the data
     fetch(`http://localhost:3000/admin/stats/listingsperuser`, {
       method: "GET",
     })

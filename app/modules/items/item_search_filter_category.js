@@ -7,6 +7,7 @@ document.getElementById("filterCategorySelect").addEventListener("change",() => 
 document.getElementById("applyCategoryFilter").addEventListener("click", () => {
     const filterCategoryInput = localStorage.getItem("filterValue")
         //window.alert(filterCategoryInput)  
+        //We will fetch the category we need to filter on in the DAL
         fetch(`http://localhost:3000/items/filter/category/${filterCategoryInput}`, {
         method: "GET", })
         .then((res) => res.json())
