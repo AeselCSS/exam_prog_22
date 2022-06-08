@@ -9,32 +9,35 @@ chai.use(chaiHttp);
 
 
 
-                                                    //Test af login User funktion:
-
-
+//Test af login User funktion:
 describe("login", () => {
-  describe("POST/Login", () => {
-    //Brugeren indtaster det rigtige login og dataen bliver returneret og behandlet som json
-    it("Checks if the data is handled as an json object and given status 200 on succeesful login", function (done) {
-        //Bruger chai
-        chai
-        //Vi tester en request på login url'en
-        .request("http://localhost:3000/users")
-        //Det er en POST-request
-        .post("/login")
-        //Bruger oplysninger fra vores database
-        .send({ username: "test", password: "test_user" })
-        //Vi tester for paramterne af response og error
-        .end((err, res) => {
-          //Der skal ikke ske nogen fejl
-          should.not.exist(err);
-          //Status code 200 "success"
-          res.should.have.status(200);
-          //At response bliver returneret og behandlet som json
-          res.type.should.equal("application/json");
-          done();
-        });
-    });
+    describe("POST/Login", () => {
+      //Brugeren indtaster det rigtige login og dataen bliver returneret og behandlet som json
+      it("Checks if the data is handled as an json object and given status 200 on succeesful login", function (done) {
+          //Bruger chai
+          chai
+          //Vi tester en request på login url'en
+          .request("http://localhost:3000/users")
+          //Det er en POST-request
+          .post("/login")
+          //Bruger oplysninger fra vores database
+          .send({ username: "test", password: "test_user" })
+          //Vi tester for paramterne af response og error
+          .end((err, res) => {
+            //Der skal ikke ske nogen fejl
+            should.not.exist(err);
+            //Status code 200 "success"
+            res.should.have.status(200);
+            //At response bliver returneret og behandlet som json
+            res.type.should.equal("application/json");
+            done();
+          });
+      });
+
+
+
+
+
     it("Wrong user login but with our error of still getting a status code 200", function (done) {
       chai
         .request("http://localhost:3000/users")

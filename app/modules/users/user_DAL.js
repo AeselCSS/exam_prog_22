@@ -52,7 +52,7 @@ const createUser = async (req, res) => {
   
 };
 
-// read all users GET method
+// read all users GET method // Benytter sig ikke //Admin//
 const readAllUsers = async (req, res) => {
   try {
     let pool = await sql.connect(config);
